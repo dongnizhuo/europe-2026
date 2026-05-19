@@ -1,0 +1,2921 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Europe 2026">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f7f1e3">
+<title>Europe 2026 · 欧洲行程手册</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f7f1e3;
+  --bg-warm: #f1e9d6;
+  --surface: #fffdf7;
+  --surface-2: #faf5e8;
+  --ink: #1c1a15;
+  --ink-2: #463f33;
+  --muted: #837a68;
+  --muted-2: #a89d86;
+  --line: #e4dac3;
+  --line-2: #d6c9ab;
+  --terracotta: #b8523a;
+  --terracotta-dark: #8b3a26;
+  --olive: #5a6b3e;
+  --olive-dark: #3f4d2a;
+  --gold: #b0843c;
+  --plum: #6e3a4d;
+  --shadow: 0 1px 2px rgba(28,26,21,0.04), 0 8px 24px rgba(28,26,21,0.06);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: contain;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(184,82,58,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 92% 80%, rgba(90,107,62,0.04) 0%, transparent 45%),
+    var(--bg);
+  padding-bottom: calc(76px + var(--safe-bottom));
+  min-height: 100vh;
+}
+
+/* paper grain overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.07'/></svg>");
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+.app { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+
+/* =================== HEADER =================== */
+.masthead {
+  padding: calc(20px + var(--safe-top)) 22px 18px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.masthead .kicker {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.masthead h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.masthead h1 .ampersand {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 300;
+}
+.masthead .sub {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  color: var(--ink-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+.masthead .meta-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.masthead .meta-row strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0;
+  color: var(--terracotta);
+  text-transform: none;
+  margin-top: 2px;
+}
+
+/* status bar */
+.status-card {
+  margin: 16px 18px 0;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--ink) 0%, #2a2620 100%);
+  color: var(--bg);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+.status-card .lbl {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,241,227,0.55);
+}
+.status-card .val {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-style: italic;
+  margin-top: 2px;
+}
+.status-card .val .num { color: var(--gold); }
+
+/* =================== PANELS =================== */
+.panel { display: none; padding: 20px 18px 32px; }
+.panel.active { display: block; }
+.panel-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  margin: 4px 4px 4px;
+}
+.panel-title .num {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 300;
+}
+.panel-lead {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 4px 22px;
+  font-style: italic;
+}
+
+/* =================== DAY QUICK NAV =================== */
+.quicknav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(var(--bg) 70%, rgba(247,241,227,0.7));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 12px 0 10px;
+  margin: 0 -18px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.quicknav-track {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 18px;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.quicknav-track::-webkit-scrollbar { display: none; }
+.quicknav-btn {
+  flex: 0 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.quicknav-btn .d {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--terracotta);
+  margin-right: 4px;
+}
+.quicknav-btn:active { transform: scale(0.96); }
+.quicknav-btn.country-tag {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+}
+
+/* =================== DAY CARD =================== */
+.country-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 18px;
+  padding: 0 4px;
+}
+.country-divider .line { flex: 1; height: 1px; background: var(--line-2); }
+.country-divider .label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.country-divider .flag { font-size: 18px; }
+.country-divider .cn {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.day {
+  background: var(--surface);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(28,26,21,0.03);
+}
+.day-header {
+  padding: 16px 18px 14px;
+  border-bottom: 1px dashed var(--line);
+  background: var(--surface-2);
+  position: relative;
+}
+.day-header::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: var(--terracotta);
+  border-radius: 0 2px 2px 0;
+}
+.day-header .top-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.day-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.day-num .n {
+  font-size: 20px;
+  font-style: italic;
+  color: var(--terracotta);
+  margin-left: 2px;
+}
+.day-date {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.day-place {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+.day-place .en { font-style: italic; }
+.day-meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: center;
+}
+.day-meta .who {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: var(--bg-warm);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.day-body { padding: 14px 18px 16px; }
+
+/* segment within a day */
+.seg {
+  position: relative;
+  padding: 10px 0 10px 28px;
+  border-bottom: 1px solid var(--line);
+}
+.seg:last-child { border-bottom: none; padding-bottom: 0; }
+.seg:first-child { padding-top: 4px; }
+.seg::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--terracotta);
+}
+.seg.flight::before { border-color: var(--olive); }
+.seg.hotel::before { border-color: var(--gold); background: var(--gold); }
+.seg.booking::before { border-color: var(--plum); background: var(--plum); }
+.seg.tbd::before { border-color: var(--muted-2); border-style: dashed; }
+
+.seg-tag {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+.seg-tag.flight { background: rgba(90,107,62,0.12); color: var(--olive-dark); }
+.seg-tag.hotel { background: rgba(176,132,60,0.15); color: #7a5520; }
+.seg-tag.booking { background: rgba(110,58,77,0.12); color: var(--plum); }
+.seg-tag.plan { background: rgba(184,82,58,0.1); color: var(--terracotta-dark); }
+.seg-tag.tbd { background: var(--bg-warm); color: var(--muted); border: 1px dashed var(--muted-2); }
+
+.seg-title {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.seg-title .en {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+.seg-time {
+  display: inline-block;
+  font-family: 'Fraunces', serif;
+  font-variant-numeric: tabular-nums;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--terracotta);
+  margin-right: 8px;
+}
+.seg-detail {
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.seg-detail .k {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 56px;
+}
+.seg-detail .row { display: flex; gap: 6px; padding: 1px 0; }
+.seg-detail .row .v { flex: 1; }
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--terracotta);
+  text-decoration: none;
+  padding: 4px 10px;
+  background: rgba(184,82,58,0.08);
+  border-radius: 6px;
+  margin-top: 6px;
+  margin-right: 6px;
+}
+.link-btn:active { background: rgba(184,82,58,0.16); }
+.link-btn::after { content: '↗'; font-size: 10px; }
+.link-btn.muted { color: var(--muted); background: var(--bg-warm); }
+.link-btn.muted::after { content: '·'; }
+
+.plan-list {
+  margin-top: 6px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.plan-list li {
+  list-style: none;
+  padding: 3px 0 3px 18px;
+  position: relative;
+}
+.plan-list li::before {
+  content: '·';
+  position: absolute;
+  left: 6px;
+  color: var(--terracotta);
+  font-weight: 700;
+}
+.plan-list .en {
+  display: block;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.note-line {
+  background: var(--bg-warm);
+  border-left: 3px solid var(--gold);
+  padding: 8px 12px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  margin-top: 8px;
+  border-radius: 0 6px 6px 0;
+  line-height: 1.5;
+}
+.note-line strong { color: var(--ink); }
+
+/* =================== FLIGHT/HOTEL LIST =================== */
+.list-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(28,26,21,0.03);
+}
+.list-card.tbd { background: repeating-linear-gradient(45deg, var(--surface) 0, var(--surface) 8px, var(--surface-2) 8px, var(--surface-2) 16px); border-style: dashed; }
+.list-card .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.list-card .when {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.list-card .when .d {
+  color: var(--terracotta);
+  font-weight: 500;
+  margin-right: 4px;
+}
+.list-card .who-pill {
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--bg-warm);
+  border-radius: 999px;
+  color: var(--ink-2);
+  letter-spacing: 0.05em;
+}
+
+.flight-route {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin: 8px 0 10px;
+}
+.flight-route .pt {
+  text-align: center;
+}
+.flight-route .pt.l { text-align: left; }
+.flight-route .pt.r { text-align: right; }
+.flight-route .airport {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  line-height: 1;
+}
+.flight-route .city {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+.flight-route .time {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-2);
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.flight-route .arrow {
+  color: var(--terracotta);
+  font-size: 16px;
+  padding: 0 6px;
+}
+.flight-route .arrow .num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 11px;
+  display: block;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.flight-info {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+.flight-info .item .k {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.flight-info .item .v {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.hotel-card .h-name {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.hotel-card .h-name .en { font-style: italic; }
+.hotel-card .h-dates {
+  font-size: 13px;
+  color: var(--ink-2);
+  margin: 4px 0 6px;
+}
+.hotel-card .h-dates .nights {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--terracotta);
+  margin-left: 4px;
+}
+
+/* =================== TOOLS =================== */
+.tool-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.tool-section h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--ink);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--line);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.tool-section h3 .en {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* currency converter */
+.fx-row {
+  display: grid;
+  grid-template-columns: 1fr 30px 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.fx-input {
+  background: var(--bg-warm);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.fx-input .sym {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--terracotta);
+  font-size: 16px;
+  width: 22px;
+  text-align: center;
+}
+.fx-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  width: 100%;
+  font-weight: 500;
+  -webkit-appearance: none;
+}
+.fx-input select {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  padding-right: 12px;
+}
+.fx-arrow {
+  text-align: center;
+  color: var(--terracotta);
+  font-size: 16px;
+}
+.fx-rates {
+  font-size: 11px;
+  color: var(--muted);
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  line-height: 1.6;
+}
+.fx-rates .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+.fx-rates .row .pair { font-weight: 600; color: var(--ink-2); }
+.fx-rates .row .rate { font-family: 'Fraunces', serif; font-style: italic; color: var(--ink); }
+.fx-rates .editable {
+  margin-top: 8px;
+  font-size: 10px;
+  font-style: italic;
+  color: var(--muted-2);
+}
+
+/* time zones */
+.tz-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.tz-card {
+  background: var(--bg-warm);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.tz-card.home { background: var(--ink); color: var(--bg); }
+.tz-card .city {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.tz-card.home .city { color: rgba(247,241,227,0.55); }
+.tz-card .time {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+.tz-card .day {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  background: none;
+  border: none;
+  padding: 0;
+  overflow: visible;
+}
+.tz-card.home .day { color: var(--gold); }
+.tz-diff {
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* phrases */
+.lang-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  background: var(--bg-warm);
+  padding: 4px;
+  border-radius: 10px;
+}
+.lang-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 7px;
+  transition: all 0.2s;
+}
+.lang-tab.active {
+  background: var(--surface);
+  color: var(--terracotta);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.phrase-set { display: none; }
+.phrase-set.active { display: block; }
+.phrase-group {
+  margin-bottom: 16px;
+}
+.phrase-group h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.phrase {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.phrase:last-child { border-bottom: none; }
+.phrase .target {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.phrase .pron {
+  font-style: italic;
+  font-size: 12px;
+  color: var(--olive-dark);
+  margin: 2px 0;
+}
+.phrase .meaning {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+}
+.phrase .meaning .cn { color: var(--ink-2); }
+
+/* =================== NOTES =================== */
+.notes-country {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.notes-country .head {
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.notes-country .head .flag { font-size: 20px; }
+.notes-country .head .name {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 500;
+  flex: 1;
+}
+.notes-country .head .name .en { font-style: italic; color: var(--muted); margin-left: 6px; font-weight: 400; font-size: 13px; }
+.notes-country .body { padding: 14px 16px; }
+.note-block {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.note-block:last-child { border-bottom: none; }
+.note-block .label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--terracotta);
+  margin-bottom: 4px;
+}
+.note-block .content {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+.note-block .content strong { color: var(--ink); }
+
+/* =================== TAB BAR =================== */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(247,241,227,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--line);
+  display: flex;
+  padding: 8px 8px var(--safe-bottom);
+  z-index: 100;
+}
+.tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 8px 4px 8px;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.tab .ic {
+  font-size: 18px;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+  filter: grayscale(0.5);
+  opacity: 0.7;
+}
+.tab .lb {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  display: block;
+  font-weight: 500;
+}
+.tab.active { color: var(--terracotta); }
+.tab.active .ic { filter: none; opacity: 1; }
+.tab.active .lb { font-weight: 700; }
+
+/* alert / tbd */
+.alert {
+  background: linear-gradient(135deg, rgba(184,82,58,0.08), rgba(176,132,60,0.06));
+  border: 1px solid rgba(184,82,58,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: var(--terracotta-dark);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.alert .ic { font-size: 14px; }
+
+/* small util */
+.small { font-size: 11px; color: var(--muted); }
+.divider-soft {
+  text-align: center;
+  margin: 24px 0 16px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted-2);
+  letter-spacing: 0.2em;
+}
+.divider-soft::before, .divider-soft::after {
+  content: '— ';
+}
+
+/* print */
+@media print {
+  body { background: white; }
+  .tabbar, .quicknav { display: none; }
+  .panel { display: block !important; page-break-after: always; }
+  body::before { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ===================== MASTHEAD ===================== -->
+<header class="masthead">
+  <div class="kicker">A Travel Almanac · 2026</div>
+  <h1>Europe <span class="ampersand">&amp;</span> Back</h1>
+  <div class="sub">伦敦 · 苏格兰 · 巴塞罗那 · 巴黎 · 意大利</div>
+  <div class="meta-row">
+    <div>Jun 4 — 26<strong>23 days</strong></div>
+    <div>4 Countries<strong>10 Cities</strong></div>
+    <div>Travellers<strong>Amy · Eric · 晗晗</strong></div>
+  </div>
+</header>
+
+<!-- live status -->
+<div class="status-card" id="status-card">
+  <div>
+    <div class="lbl">Today · 今天</div>
+    <div class="val" id="status-text">Loading…</div>
+  </div>
+  <div style="text-align: right;">
+    <div class="lbl">Local · 当地</div>
+    <div class="val" id="status-time">—</div>
+  </div>
+</div>
+
+<!-- =================================================== -->
+<!-- ============ PANEL: TRIP / DAY BY DAY ============= -->
+<!-- =================================================== -->
+<section class="panel active" id="panel-trip">
+
+  <nav class="quicknav">
+    <div class="quicknav-track" id="quicknav-track">
+      <button class="quicknav-btn country-tag" data-jump="uk-1">🇬🇧 UK</button>
+      <button class="quicknav-btn" data-jump="day-1"><span class="d">1</span>6/4</button>
+      <button class="quicknav-btn" data-jump="day-2"><span class="d">2</span>6/5</button>
+      <button class="quicknav-btn" data-jump="day-3"><span class="d">3</span>6/6</button>
+      <button class="quicknav-btn" data-jump="day-4"><span class="d">4</span>6/7</button>
+      <button class="quicknav-btn" data-jump="day-5"><span class="d">5</span>6/8</button>
+      <button class="quicknav-btn country-tag" data-jump="es-1">🇪🇸 ES</button>
+      <button class="quicknav-btn" data-jump="day-6"><span class="d">6</span>6/9</button>
+      <button class="quicknav-btn" data-jump="day-7"><span class="d">7</span>6/10</button>
+      <button class="quicknav-btn" data-jump="day-8"><span class="d">8</span>6/11</button>
+      <button class="quicknav-btn country-tag" data-jump="uk-2">🇬🇧 UK</button>
+      <button class="quicknav-btn" data-jump="day-9"><span class="d">9</span>6/12</button>
+      <button class="quicknav-btn" data-jump="day-10"><span class="d">10</span>6/13</button>
+      <button class="quicknav-btn" data-jump="day-11"><span class="d">11</span>6/14</button>
+      <button class="quicknav-btn" data-jump="day-12"><span class="d">12</span>6/15</button>
+      <button class="quicknav-btn country-tag" data-jump="fr-1">🇫🇷 FR</button>
+      <button class="quicknav-btn" data-jump="day-13"><span class="d">13</span>6/16</button>
+      <button class="quicknav-btn" data-jump="day-14"><span class="d">14</span>6/17</button>
+      <button class="quicknav-btn" data-jump="day-15"><span class="d">15</span>6/18</button>
+      <button class="quicknav-btn country-tag" data-jump="it-1">🇮🇹 IT</button>
+      <button class="quicknav-btn" data-jump="day-16"><span class="d">16</span>6/19</button>
+      <button class="quicknav-btn" data-jump="day-17"><span class="d">17</span>6/20</button>
+      <button class="quicknav-btn" data-jump="day-18"><span class="d">18</span>6/21</button>
+      <button class="quicknav-btn" data-jump="day-19"><span class="d">19</span>6/22</button>
+      <button class="quicknav-btn" data-jump="day-20"><span class="d">20</span>6/23</button>
+      <button class="quicknav-btn" data-jump="day-21"><span class="d">21</span>6/24</button>
+      <button class="quicknav-btn" data-jump="day-22"><span class="d">22</span>6/25</button>
+      <button class="quicknav-btn country-tag" data-jump="rt">✈ Home</button>
+      <button class="quicknav-btn" data-jump="day-23"><span class="d">23</span>6/26</button>
+    </div>
+  </nav>
+
+  <div class="alert">
+    <span class="ic">⚑</span>
+    <span><strong>待预订 / TBD:</strong> 巴塞罗那机酒 · 巴塞→伦敦机票 · 巴黎酒店 · 塞纳河游船 · 比萨/罗马火车票 · 万神庙(可能)</span>
+  </div>
+
+  <!-- ============= UK FIRST LEG ============= -->
+  <div class="country-divider" id="uk-1">
+    <span class="flag">🇬🇧</span>
+    <span class="line"></span>
+    <span class="label"><em>United Kingdom</em></span>
+    <span class="cn">英国 · 第一程</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- ============ DAY 1 ============ -->
+  <article class="day" id="day-1">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">1</span></span>
+        <span class="day-date">Thu · Jun 4</span>
+      </div>
+      <div class="day-place">Los Angeles <span class="en">→ London</span></div>
+      <div class="day-meta">
+        <span class="who">✈ Amy</span>
+        <span>跨夜航班 · Overnight</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg flight">
+        <span class="seg-tag flight">Flight · 航班</span>
+        <div class="seg-title">United UA923 <span class="en">LAX → LHR</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">起飞</span><span class="v"><span class="seg-time">15:35</span>Los Angeles (LAX) · Jun 4</span></div>
+          <div class="row"><span class="k">抵达</span><span class="v"><span class="seg-time">10:10</span>London Heathrow (LHR) · Jun 5</span></div>
+          <div class="row"><span class="k">时长</span><span class="v">约 10h35m · 跨日抵达</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1N6TZ1luYYP1HMtF42A0FBG7lBmxQA9f0/view?usp=drive_link" target="_blank">确认单 Confirmation</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 2 ============ -->
+  <article class="day" id="day-2">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">2</span></span>
+        <span class="day-date">Fri · Jun 5</span>
+      </div>
+      <div class="day-place">London <span class="en">→ Glasgow</span></div>
+      <div class="day-meta">
+        <span class="who">✈ Amy</span>
+        <span>上午抵伦敦 · 当日转机苏格兰</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Arrival · 抵达</span>
+        <div class="seg-title">抵达伦敦希思罗 <span class="en">Arrive LHR</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">时间</span><span class="v"><span class="seg-time">10:10</span>T2 / T3 / T5 取决于实际</span></div>
+          <div class="row"><span class="k">提示</span><span class="v">入境后取行李 · 转机航站楼 LHR T5 (BA 国内线) · 预留 ≥3h</span></div>
+        </div>
+      </div>
+      <div class="seg flight">
+        <span class="seg-tag flight">Flight · 航班</span>
+        <div class="seg-title">British Airways BA1490 <span class="en">LHR → GLA</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">起飞</span><span class="v"><span class="seg-time">17:20</span>London Heathrow (LHR)</span></div>
+          <div class="row"><span class="k">抵达</span><span class="v"><span class="seg-time">18:50</span>Glasgow (GLA)</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1AdFyO5lOKyYVm_dOqYnURk04aGKdu4Bz/view?usp=drive_link" target="_blank">确认单 Confirmation</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 3 ============ -->
+  <article class="day" id="day-3">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">3</span></span>
+        <span class="day-date">Sat · Jun 6</span>
+      </div>
+      <div class="day-place">Glasgow <span class="en">· 格拉斯哥</span></div>
+      <div class="day-meta">
+        <span class="who">Amy</span>
+        <span>自由活动 · Open day</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Open · 自由</span>
+        <div class="seg-title">无固定行程 <span class="en">No fixed plans</span></div>
+        <div class="note-line">
+          <strong>建议 ·</strong> West End / Kelvingrove 美术馆 · Buchanan St 购物 · Necropolis 公墓山看城市全景 · 圣蒙戈博物馆 St Mungo's
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 4 ============ -->
+  <article class="day" id="day-4">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">4</span></span>
+        <span class="day-date">Sun · Jun 7</span>
+      </div>
+      <div class="day-place">Glasgow <span class="en">· 格拉斯哥</span></div>
+      <div class="day-meta">
+        <span class="who">Amy</span>
+        <span>自由活动 · Open day</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Open · 自由</span>
+        <div class="seg-title">无固定行程 <span class="en">No fixed plans</span></div>
+        <div class="note-line">
+          <strong>建议 ·</strong> Loch Lomond 罗梦湖一日游 · 或 Stirling 城堡 + Wallace 纪念碑 · 火车票当日买
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 5 ============ -->
+  <article class="day" id="day-5">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">5</span></span>
+        <span class="day-date">Mon · Jun 8</span>
+      </div>
+      <div class="day-place">Edinburgh <span class="en">· 爱丁堡</span></div>
+      <div class="day-meta">
+        <span class="who">Amy</span>
+        <span>自由活动 · Open day</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Open · 自由</span>
+        <div class="seg-title">无固定行程 <span class="en">No fixed plans</span></div>
+        <div class="note-line">
+          <strong>建议 ·</strong> 皇家英里 Royal Mile · 爱丁堡城堡 (需提前在线买票) · Arthur's Seat 亚瑟王座徒步 · Dean Village · 苏格兰国家美术馆
+        </div>
+        <div class="note-line">
+          <strong>交通 ·</strong> Glasgow Queen St ⇄ Edinburgh Waverley 火车约 50min, ScotRail 当日往返
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============= SPAIN ============= -->
+  <div class="country-divider" id="es-1">
+    <span class="flag">🇪🇸</span>
+    <span class="line"></span>
+    <span class="label"><em>España</em></span>
+    <span class="cn">西班牙</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- ============ DAY 6 ============ -->
+  <article class="day" id="day-6">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">6</span></span>
+        <span class="day-date">Tue · Jun 9</span>
+      </div>
+      <div class="day-place">Scotland <span class="en">→ Barcelona</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + 晗晗</span>
+        <span>晗晗汇合 · Hanhan joins</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg tbd">
+        <span class="seg-tag tbd">TBD · 待预订</span>
+        <div class="seg-title">飞往巴塞罗那 <span class="en">Flight to Barcelona</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">参考</span><span class="v">Vueling / Ryanair / easyJet 直飞约 3h · 比较 GLA / EDI 出发</span></div>
+        </div>
+      </div>
+      <div class="seg tbd">
+        <span class="seg-tag tbd">TBD · 待预订</span>
+        <div class="seg-title">巴塞罗那酒店 <span class="en">Hotel in Barcelona</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">建议</span><span class="v">Eixample / Gòtic / Born 三区最便利 · 靠近 Passeig de Gràcia 地铁</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 7 ============ -->
+  <article class="day" id="day-7">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">7</span></span>
+        <span class="day-date">Wed · Jun 10</span>
+      </div>
+      <div class="day-place">Barcelona <span class="en">· 巴塞罗那</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + 晗晗</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Open · 自由</span>
+        <div class="seg-title">未定具体行程 <span class="en">No fixed plans</span></div>
+        <div class="note-line">
+          <strong>必看 ·</strong> 圣家堂 Sagrada Família (强烈建议在线预约) · 古埃尔公园 Park Güell (限时段, 需预约) · 米拉之家 Casa Milà / 巴特罗之家 Casa Batlló
+        </div>
+        <div class="note-line">
+          <strong>步行游 ·</strong> 哥特区 Barri Gòtic · 兰布拉大道 La Rambla · 博凯利亚市场 Mercat de la Boqueria · Barceloneta 海滩
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 8 ============ -->
+  <article class="day" id="day-8">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">8</span></span>
+        <span class="day-date">Thu · Jun 11</span>
+      </div>
+      <div class="day-place">Barcelona <span class="en">· 巴塞罗那</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + 晗晗</span>
+        <span>Eric 美西起飞 · Eric departs LAX</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Open · 自由</span>
+        <div class="seg-title">巴塞罗那第二天</div>
+        <div class="note-line">
+          <strong>建议 ·</strong> Montjuïc 山 (空中缆车 + 魔幻喷泉) · 毕加索博物馆 (周四晚 17:00 后免费) · El Born 区夜生活与 Tapas
+        </div>
+      </div>
+      <div class="seg flight">
+        <span class="seg-tag flight">Flight · 航班 (Eric)</span>
+        <div class="seg-title">Virgin Atlantic VS24 <span class="en">LAX → LHR</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">起飞</span><span class="v"><span class="seg-time">23:15</span>LAX · Jun 11 (LA 时间)</span></div>
+          <div class="row"><span class="k">抵达</span><span class="v"><span class="seg-time">17:35</span>LHR · Jun 12 (London 时间)</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1E1lCdMExEXJjhjjEftbmQiDY1dIeYF1J/view?usp=drive_link" target="_blank">确认单 Confirmation</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============= UK SECOND LEG ============= -->
+  <div class="country-divider" id="uk-2">
+    <span class="flag">🇬🇧</span>
+    <span class="line"></span>
+    <span class="label"><em>London</em></span>
+    <span class="cn">伦敦 · 第二程</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- ============ DAY 9 ============ -->
+  <article class="day" id="day-9">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">9</span></span>
+        <span class="day-date">Fri · Jun 12</span>
+      </div>
+      <div class="day-place">Barcelona <span class="en">→ London</span></div>
+      <div class="day-meta">
+        <span class="who">Amy → London</span>
+        <span class="who">Eric arrives LHR</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg tbd">
+        <span class="seg-tag tbd">TBD · 待预订</span>
+        <div class="seg-title">Amy: 巴塞罗那 → 伦敦 <span class="en">BCN → London</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">参考</span><span class="v">Vueling / BA 直飞约 2h15m</span></div>
+          <div class="row"><span class="k">协调</span><span class="v">尽量 16:00 前抵伦敦, 方便接 Eric (17:35 抵 LHR)</span></div>
+        </div>
+      </div>
+      <div class="seg hotel">
+        <span class="seg-tag hotel">Stay · 住宿</span>
+        <div class="seg-title">Tower Suites by Blue Orchid <span class="en">· 伦敦塔套房</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">入住</span><span class="v">Jun 12 起 · 3 晚 (Jun 12 → 15)</span></div>
+          <div class="row"><span class="k">区位</span><span class="v">伦敦塔与塔桥附近 · City of London</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1S6ycxI3Er8mGIxlGRBFizSiHxULcvGUB/view?usp=drive_link" target="_blank">确认单 Confirmation</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 10 ============ -->
+  <article class="day" id="day-10">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">10</span></span>
+        <span class="day-date">Sat · Jun 13</span>
+      </div>
+      <div class="day-place">London <span class="en">· 地标轻松日</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>调时差 · Easy-paced sightseeing</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Plan · 行程</span>
+        <div class="seg-title">伦敦地标一日游 <span class="en">London Landmarks Day 1</span></div>
+        <ul class="plan-list">
+          <li>伦敦塔桥 Tower Bridge<span class="en">Tower Bridge exhibition optional</span></li>
+          <li>大本钟 + 国会大厦 Big Ben & Westminster<span class="en">Photo stop from Westminster Bridge</span></li>
+          <li>伦敦眼 London Eye<span class="en">Best booked online in advance</span></li>
+          <li>双层观光巴士 Big Bus Hop-on Hop-off<span class="en">Easy & low-energy after jet lag</span></li>
+          <li>泰晤士河游船 Thames River Cruise<span class="en">Westminster → Greenwich pier</span></li>
+        </ul>
+        <div class="note-line">
+          <strong>友情提示 ·</strong> Eric 刚下飞机时差大, 节奏放慢. 双层巴士 + 河船的组合既看得多又不累.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 11 ============ -->
+  <article class="day" id="day-11">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">11</span></span>
+        <span class="day-date">Sun · Jun 14</span>
+      </div>
+      <div class="day-place">London <span class="en">· 皇家 + 格林威治</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Morning · 上午</span>
+        <div class="seg-title">威斯敏斯特一带 <span class="en">Westminster Walk</span></div>
+        <ul class="plan-list">
+          <li>威斯敏斯特教堂 Westminster Abbey<span class="en">Closed Sundays to tourists — check / 周日仅对礼拜开放</span></li>
+          <li>白金汉宫 Buckingham Palace<span class="en">Changing of the Guard 周三/五/日 11:00</span></li>
+          <li>圣詹姆斯公园 St James's Park · 海德公园 Hyde Park<span class="en">Easy walk between palaces</span></li>
+        </ul>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Afternoon · 下午</span>
+        <div class="seg-title">格林威治天文台 <span class="en">Royal Observatory Greenwich</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">路线</span><span class="v">DLR 线 → Cutty Sark 站, 步行上山约 15min</span></div>
+          <div class="row"><span class="k">看点</span><span class="v">本初子午线 Prime Meridian · 格林威治标准时间</span></div>
+        </div>
+        <div class="note-line">
+          <strong>顺便 ·</strong> 山下卡蒂萨克号 Cutty Sark 帆船 · 格林威治市场 (周末好逛)
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 12 ============ -->
+  <article class="day" id="day-12">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">12</span></span>
+        <span class="day-date">Mon · Jun 15</span>
+      </div>
+      <div class="day-place">London <span class="en">→ Paris</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>大英博物馆 + 傍晚飞巴黎</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Morning · 上午</span>
+        <div class="seg-title">大英博物馆 <span class="en">The British Museum</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">入场</span><span class="v">免费 · 建议预约时段票避开排队</span></div>
+          <div class="row"><span class="k">行李</span><span class="v">⚠ 需寄存 — 馆内 cloakroom 约 £3-5/件, 大件可能拒收</span></div>
+          <div class="row"><span class="k">替代</span><span class="v">附近 Excess Baggage / Stasher / LuggageHero 可寄存</span></div>
+        </div>
+        <div class="note-line">
+          <strong>不可错过 ·</strong> 罗塞塔石碑 · 帕特农神庙浮雕 · 古埃及木乃伊 · 复活节岛石像 (Hoa Hakananai'a)
+        </div>
+      </div>
+      <div class="seg flight">
+        <span class="seg-tag flight">Flight · 航班</span>
+        <div class="seg-title">British Airways BA0312 <span class="en">LHR → CDG</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">起飞</span><span class="v"><span class="seg-time">18:20</span>London Heathrow</span></div>
+          <div class="row"><span class="k">抵达</span><span class="v"><span class="seg-time">20:35</span>Paris CDG · 时差 +1h</span></div>
+          <div class="row"><span class="k">提示</span><span class="v">提前到 LHR ≥3h · CDG 入境后 RER B 进市区</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1IshN9CZen10lvR0iXSOPA1Ev8C3UOJ3M/view?usp=drive_link" target="_blank">确认单 Confirmation</a>
+      </div>
+      <div class="seg tbd">
+        <span class="seg-tag tbd">TBD · 待预订</span>
+        <div class="seg-title">巴黎酒店 <span class="en">Hotel in Paris</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">建议</span><span class="v">1/4/6/7 区最方便 · 靠近 Châtelet/Opéra/Saint-Germain</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============= FRANCE ============= -->
+  <div class="country-divider" id="fr-1">
+    <span class="flag">🇫🇷</span>
+    <span class="line"></span>
+    <span class="label"><em>France</em></span>
+    <span class="cn">法国 · 巴黎</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- ============ DAY 13 ============ -->
+  <article class="day" id="day-13">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">13</span></span>
+        <span class="day-date">Tue · Jun 16</span>
+      </div>
+      <div class="day-place">Disneyland Paris <span class="en">· 巴黎迪士尼</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>欧洲唯一迪士尼</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Transit · 交通</span>
+        <div class="seg-title">RER A 线到迪士尼 <span class="en">Paris → Marne-la-Vallée Chessy</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">车程</span><span class="v">约 45 min · 终点站下车</span></div>
+          <div class="row"><span class="k">导向</span><span class="v">跟着米奇标识走 · 出站即园区</span></div>
+        </div>
+      </div>
+      <div class="seg booking">
+        <span class="seg-tag booking">Ticket · 门票</span>
+        <div class="seg-title">迪士尼乐园门票 <span class="en">Disneyland Paris Tickets</span></div>
+        <a class="link-btn" href="https://www.disneylandparis.com/en-usd" target="_blank">官方购票 Tickets</a>
+        <div class="note-line">
+          <strong>建议 ·</strong> 提前下载 Disneyland Paris App · 早到早玩 · 注意闭园时间和最后一班 RER A 回市区
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 14 ============ -->
+  <article class="day" id="day-14">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">14</span></span>
+        <span class="day-date">Wed · Jun 17</span>
+      </div>
+      <div class="day-place">Paris <span class="en">· 大动脉 + 卢浮宫</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>博物馆通票日</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg booking">
+        <span class="seg-tag booking">Pass · 通票</span>
+        <div class="seg-title">巴黎博物馆通票 <span class="en">Paris Museum Pass</span></div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1TEtqX4MI0kXdYFP-7XtPMDJTMmhvrEfV/view?usp=drive_link" target="_blank">通票凭证 Pass</a>
+        <div class="note-line">
+          <strong>·</strong> 通票覆盖 50+ 场馆, 但热门馆 (卢浮宫/奥赛) 仍需单独预约时段
+        </div>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Day Plan · 白天路线</span>
+        <div class="seg-title">中轴线步行 <span class="en">From Opéra to Montmartre</span></div>
+        <ul class="plan-list">
+          <li>巴黎歌剧院 Palais Garnier<span class="en">Opera house — interior open</span></li>
+          <li>杜乐丽花园 Jardin des Tuileries<span class="en">Garden walk</span></li>
+          <li>协和广场 Place de la Concorde<span class="en">Obelisk square</span></li>
+          <li>香榭丽舍大街 Champs-Élysées<span class="en">Stroll the avenue</span></li>
+          <li>凯旋门 Arc de Triomphe<span class="en">Climb top — pass covers</span></li>
+          <li>蒙马特高地 Montmartre + Sacré-Cœur<span class="en">Late afternoon, before dinner</span></li>
+          <li>biubiu 麻辣烫<span class="en">Dinner before Louvre night session</span></li>
+        </ul>
+      </div>
+      <div class="seg booking">
+        <span class="seg-tag booking">Booking · 预约</span>
+        <div class="seg-title">卢浮宫晚场 <span class="en">Louvre Evening Slot</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">时间</span><span class="v"><span class="seg-time">18:00</span>入场</span></div>
+          <div class="row"><span class="k">看点</span><span class="v">蒙娜丽莎 · 米洛的维纳斯 · 萨莫色雷斯胜利女神 · 自由领导人民</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1oG_DEyml-82MaoL0wHSiZGjGhzFJHp8X/view?usp=drive_link" target="_blank">预订单 Booking</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 15 ============ -->
+  <article class="day" id="day-15">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">15</span></span>
+        <span class="day-date">Thu · Jun 18</span>
+      </div>
+      <div class="day-place">Paris <span class="en">· 左岸 + 塞纳河</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Morning–Afternoon · 上下午</span>
+        <div class="seg-title">塞纳河左岸 <span class="en">Left Bank Day</span></div>
+        <ul class="plan-list">
+          <li>巴黎圣母院 Notre-Dame de Paris<span class="en">Reopened — exterior + interior viewing</span></li>
+          <li>莎士比亚书店 Shakespeare & Co.<span class="en">Iconic English bookstore</span></li>
+          <li>花神咖啡馆 Café de Flore<span class="en">Saint-Germain literary cafe</span></li>
+        </ul>
+      </div>
+      <div class="seg booking">
+        <span class="seg-tag booking">Booking · 预约</span>
+        <div class="seg-title">奥赛博物馆晚场 <span class="en">Musée d'Orsay Evening</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">时间</span><span class="v"><span class="seg-time">18:30</span>入场</span></div>
+          <div class="row"><span class="k">看点</span><span class="v">梵高 · 莫奈 · 雷诺阿 · 德加 — 印象派宝库</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1lW8bGNTlgcVu74cCMze6YE573uqIsou7/view?usp=drive_link" target="_blank">预订单 Booking</a>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Evening · 夜晚</span>
+        <div class="seg-title">埃菲尔铁塔 + 塞纳河游船 <span class="en">Eiffel & Seine Cruise</span></div>
+        <div class="note-line">
+          <strong>提示 ·</strong> 铁塔整点闪灯 5min · 游船可看夜景版铁塔 (TBD: 选 Bateaux Mouches 或 Vedettes)
+        </div>
+      </div>
+      <div class="seg tbd">
+        <span class="seg-tag tbd">TBD · 待预订</span>
+        <div class="seg-title">塞纳河游船 <span class="en">Seine Cruise Ticket</span></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============= ITALY ============= -->
+  <div class="country-divider" id="it-1">
+    <span class="flag">🇮🇹</span>
+    <span class="line"></span>
+    <span class="label"><em>Italia</em></span>
+    <span class="cn">意大利</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- ============ DAY 16 ============ -->
+  <article class="day" id="day-16">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">16</span></span>
+        <span class="day-date">Fri · Jun 19</span>
+      </div>
+      <div class="day-place">Paris <span class="en">→ Florence</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg flight">
+        <span class="seg-tag flight">Flight · 航班</span>
+        <div class="seg-title">Iberia IB5015 <span class="en">ORY T1 → FLR</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">起飞</span><span class="v"><span class="seg-time">15:15</span>Paris Orly T1 (非 CDG ⚠)</span></div>
+          <div class="row"><span class="k">抵达</span><span class="v"><span class="seg-time">17:00</span>Florence (FLR)</span></div>
+          <div class="row"><span class="k">提示</span><span class="v">注意是 Orly 不是 CDG · 提前看好交通方式</span></div>
+        </div>
+      </div>
+      <div class="seg hotel">
+        <span class="seg-tag hotel">Stay · 住宿</span>
+        <div class="seg-title">Hotel Indigo Florence by IHG</div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">入住</span><span class="v">Jun 19 → Jun 22 · 3 晚</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1U2QGYFdBs-5-FvRnPq39RQxjGr_p7vpF/view?usp=sharing" target="_blank">确认单 Confirmation</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 17 ============ -->
+  <article class="day" id="day-17">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">17</span></span>
+        <span class="day-date">Sat · Jun 20</span>
+      </div>
+      <div class="day-place">Florence <span class="en">· 大卫 + 乌菲兹</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>佛罗伦萨主力日</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg booking">
+        <span class="seg-tag booking">Morning · 上午</span>
+        <div class="seg-title">学院美术馆 — 大卫像 <span class="en">Accademia · David</span></div>
+        <a class="link-btn" href="https://webshop.b-ticket.com/webshop/webticket/bestseatselectbyblock?eventId=64921&el=true" target="_blank">门票 Ticket</a>
+        <div class="note-line">
+          <strong>·</strong> 米开朗基罗的原版 David · 馆比想象的小, 1-1.5h 足够
+        </div>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Midday · 中午</span>
+        <div class="seg-title">老城中心步行 <span class="en">Centro Storico Walk</span></div>
+        <ul class="plan-list">
+          <li>圣母百花大教堂 Duomo<span class="en">Brunelleschi's dome — climb if booked</span></li>
+          <li>共和广场 Piazza della Repubblica<span class="en">Central square</span></li>
+          <li>金主喷泉 Fontana del Porcellino<span class="en">Rub the boar's nose for luck</span></li>
+          <li>领主广场 Piazza della Signoria<span class="en">Outdoor sculpture gallery + lunch</span></li>
+        </ul>
+      </div>
+      <div class="seg booking">
+        <span class="seg-tag booking">Afternoon · 下午</span>
+        <div class="seg-title">乌菲兹美术馆 <span class="en">Galleria degli Uffizi</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">时间</span><span class="v"><span class="seg-time">15:00</span>入场</span></div>
+          <div class="row"><span class="k">看点</span><span class="v">波提切利《维纳斯的诞生》《春》 · 达芬奇《天使报喜》 · 卡拉瓦乔</span></div>
+        </div>
+        <a class="link-btn" href="https://uffizigalleriestickets.com/?lang=en" target="_blank">门票 Ticket</a>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Evening · 傍晚</span>
+        <div class="seg-title">阿诺河南岸 <span class="en">Across the Arno</span></div>
+        <ul class="plan-list">
+          <li>老桥 Ponte Vecchio<span class="en">Famous covered bridge with goldsmiths</span></li>
+          <li>碧提宫 Palazzo Pitti<span class="en">Pitti Palace — exterior or visit</span></li>
+          <li>米开朗基罗广场 Piazzale Michelangelo<span class="en">Sunset view over Florence ★</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 18 ============ -->
+  <article class="day" id="day-18">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">18</span></span>
+        <span class="day-date">Sun · Jun 21</span>
+      </div>
+      <div class="day-place">Pisa <span class="en">· 比萨当日往返</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>夜宿仍佛罗伦萨</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg tbd">
+        <span class="seg-tag tbd">TBD · 待预订</span>
+        <div class="seg-title">佛罗伦萨 ⇄ 比萨 火车 <span class="en">Florence ⇄ Pisa</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">路线</span><span class="v">Firenze S.M.N. → Pisa Centrale · Regionale 约 1h</span></div>
+          <div class="row"><span class="k">提示</span><span class="v">Trenitalia 当日买不涨价 · Pisa 站到斜塔步行约 25min 或公交 LAM Rossa</span></div>
+        </div>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Plan · 行程</span>
+        <div class="seg-title">奇迹广场 <span class="en">Piazza dei Miracoli</span></div>
+        <ul class="plan-list">
+          <li>比萨斜塔 Torre Pendente<span class="en">登塔需提前在线买票 · 限时段</span></li>
+          <li>主教座堂 Duomo + 洗礼堂 Battistero</li>
+          <li>墓园 Camposanto</li>
+        </ul>
+        <div class="note-line">
+          <strong>·</strong> 早回佛罗伦萨可以补昨天没去到的, 或干脆休息一下养精蓄锐
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 19 ============ -->
+  <article class="day" id="day-19">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">19</span></span>
+        <span class="day-date">Mon · Jun 22</span>
+      </div>
+      <div class="day-place">Florence <span class="en">→ Rome</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg tbd">
+        <span class="seg-tag tbd">TBD · 待预订</span>
+        <div class="seg-title">佛罗伦萨 → 罗马 火车 <span class="en">Florence → Rome</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">路线</span><span class="v">Firenze S.M.N. → Roma Termini</span></div>
+          <div class="row"><span class="k">车型</span><span class="v">Frecciarossa / Italo 高铁约 1h30m · 越早买越便宜</span></div>
+        </div>
+      </div>
+      <div class="seg hotel">
+        <span class="seg-tag hotel">Stay · 住宿</span>
+        <div class="seg-title">Adriana Boutique Guest House <span class="en">· 罗马</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">入住</span><span class="v">Jun 22 → Jun 26 · 4 晚</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1xSRJ4Nz6nJatUV5k-RiI_rwNETAd4QXe/view?usp=sharing" target="_blank">确认单 Confirmation</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 20 ============ -->
+  <article class="day" id="day-20">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">20</span></span>
+        <span class="day-date">Tue · Jun 23</span>
+      </div>
+      <div class="day-place">Rome <span class="en">· 古罗马 + 喷泉</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg">
+        <span class="seg-tag plan">Plan · 行程</span>
+        <div class="seg-title">古罗马轴线 + 巴洛克散步 <span class="en">Ancient Rome → Baroque Walk</span></div>
+        <ul class="plan-list">
+          <li>斗兽场 Colosseo<span class="en">Suggest pre-booked timed entry</span></li>
+          <li>古罗马广场 + 帕拉蒂诺山 Foro Romano + Palatino<span class="en">Combined ticket with Colosseum</span></li>
+          <li>威尼斯广场 Piazza Venezia<span class="en">Vittoriano monument</span></li>
+          <li>万神庙 Pantheon<span class="en">⚠ 现在可能需要预约 · 入场免费</span></li>
+          <li>圣依纳爵堂 Sant'Ignazio<span class="en">Trompe-l'œil ceiling — 镜面看天顶</span></li>
+          <li>特雷维喷泉 Fontana di Trevi<span class="en">Throw a coin</span></li>
+          <li>西班牙广场 Piazza di Spagna<span class="en">Spanish Steps</span></li>
+        </ul>
+        <div class="note-line">
+          <strong>万神庙 ·</strong> 自 2023 起一般日 €5 门票 · 周日免费但需预约 · 出发前查 museiitaliani.it
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 21 ============ -->
+  <article class="day" id="day-21">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">21</span></span>
+        <span class="day-date">Wed · Jun 24</span>
+      </div>
+      <div class="day-place">Vatican City <span class="en">· 梵蒂冈</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg booking">
+        <span class="seg-tag booking">Morning · 上午</span>
+        <div class="seg-title">梵蒂冈博物馆导览 <span class="en">Vatican Museums Guided Tour</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">时间</span><span class="v"><span class="seg-time">08:00</span>入场 + 导览</span></div>
+          <div class="row"><span class="k">提示</span><span class="v">含西斯廷礼拜堂 · 着装要求: 肩膝必须遮住</span></div>
+        </div>
+        <a class="link-btn" href="https://drive.google.com/file/d/1PZqLUzunOBKa7eRjsyN_bnZURumzFFdt/view?usp=drive_link" target="_blank">预订单 Booking</a>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Midday · 中午</span>
+        <div class="seg-title">圣彼得大教堂 <span class="en">St. Peter's Basilica</span></div>
+        <div class="note-line">
+          <strong>·</strong> 进入免费, 但安检长队 · 登穹顶另收费 · 着装要求同博物馆
+        </div>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Afternoon · 下午 (可选)</span>
+        <div class="seg-title">圣天使堡 <span class="en">Castel Sant'Angelo</span></div>
+        <div class="note-line">
+          <strong>·</strong> 体力有余则进去登顶 · 否则桥上拍外观即可
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DAY 22 ============ -->
+  <article class="day" id="day-22">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">22</span></span>
+        <span class="day-date">Thu · Jun 25</span>
+      </div>
+      <div class="day-place">Rome <span class="en">· 博尔盖塞 + 落日</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>最后一天 · 慢节奏</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg booking">
+        <span class="seg-tag booking">Booking · 预约</span>
+        <div class="seg-title">博尔盖塞美术馆 <span class="en">Galleria Borghese</span></div>
+        <a class="link-btn" href="https://www.tosc.it/artist/galleria-borghese/galleria-borghese-2253937/" target="_blank">门票 Ticket</a>
+        <div class="note-line">
+          <strong>·</strong> 严格分时段 · 每场 2h · 贝尼尼《阿波罗与达芙妮》《劫掠普洛塞庇娜》 + 卡拉瓦乔
+        </div>
+      </div>
+      <div class="seg">
+        <span class="seg-tag plan">Evening · 傍晚</span>
+        <div class="seg-title">苹丘看落日 <span class="en">Pincian Hill Sunset</span></div>
+        <div class="note-line">
+          <strong>·</strong> Terrazza del Pincio 露台俯瞰人民广场 + 圣彼得穹顶剪影 · 最佳告别罗马的方式
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============= RETURN ============= -->
+  <div class="country-divider" id="rt">
+    <span class="flag">✈️</span>
+    <span class="line"></span>
+    <span class="label"><em>Return</em></span>
+    <span class="cn">回国</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- ============ DAY 23 ============ -->
+  <article class="day" id="day-23">
+    <div class="day-header">
+      <div class="top-row">
+        <span class="day-num">Day<span class="n">23</span></span>
+        <span class="day-date">Fri · Jun 26</span>
+      </div>
+      <div class="day-place">Rome <span class="en">→ Chengdu → Changchun</span></div>
+      <div class="day-meta">
+        <span class="who">Amy + Eric</span>
+        <span>双程回国</span>
+      </div>
+    </div>
+    <div class="day-body">
+      <div class="seg flight">
+        <span class="seg-tag flight">Flight 1 · 第一程</span>
+        <div class="seg-title">川航 3U3896 <span class="en">FCO T3 → CTU T1</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">起飞</span><span class="v"><span class="seg-time">13:05</span>Rome Fiumicino T3 · Jun 26 (罗马)</span></div>
+          <div class="row"><span class="k">抵达</span><span class="v"><span class="seg-time">05:25</span>成都天府 T1 · Jun 27 (北京时间)</span></div>
+        </div>
+      </div>
+      <div class="seg flight">
+        <span class="seg-tag flight">Flight 2 · 第二程</span>
+        <div class="seg-title">川航 3U6431 <span class="en">CTU T2 → CGQ T2</span></div>
+        <div class="seg-detail">
+          <div class="row"><span class="k">起飞</span><span class="v"><span class="seg-time">09:15</span>成都天府 T2</span></div>
+          <div class="row"><span class="k">抵达</span><span class="v"><span class="seg-time">12:40</span>长春龙嘉 T2</span></div>
+          <div class="row"><span class="k">⚠</span><span class="v">国际到国内需要换航站楼 T1→T2 · 留足时间</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div class="divider-soft">FIN</div>
+</section>
+
+<!-- =================================================== -->
+<!-- =============== PANEL: FLIGHTS ==================== -->
+<!-- =================================================== -->
+<section class="panel" id="panel-flights">
+  <h2 class="panel-title">Flights <span class="num">·</span> <em>航班</em></h2>
+  <p class="panel-lead">All flights in one place. Tap confirmation for details.</p>
+
+  <div class="list-card">
+    <div class="top">
+      <span class="when"><span class="d">Jun 4</span>UA 923</span>
+      <span class="who-pill">Amy</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l">
+        <div class="airport">LAX</div>
+        <div class="city">Los Angeles</div>
+        <div class="time">15:35 · 6/4</div>
+      </div>
+      <div class="arrow">→<span class="num">~10h35m</span></div>
+      <div class="pt r">
+        <div class="airport">LHR</div>
+        <div class="city">London</div>
+        <div class="time">10:10 · 6/5</div>
+      </div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Carrier</div><div class="v">United</div></div>
+      <div class="item"><div class="k">Flight</div><div class="v">UA923</div></div>
+    </div>
+    <a class="link-btn" style="margin-top:10px;" href="https://drive.google.com/file/d/1N6TZ1luYYP1HMtF42A0FBG7lBmxQA9f0/view?usp=drive_link" target="_blank">Confirmation 确认单</a>
+  </div>
+
+  <div class="list-card">
+    <div class="top">
+      <span class="when"><span class="d">Jun 5</span>BA 1490</span>
+      <span class="who-pill">Amy</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">LHR</div><div class="city">London</div><div class="time">17:20</div></div>
+      <div class="arrow">→<span class="num">1h30m</span></div>
+      <div class="pt r"><div class="airport">GLA</div><div class="city">Glasgow</div><div class="time">18:50</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Carrier</div><div class="v">British Airways</div></div>
+      <div class="item"><div class="k">Flight</div><div class="v">BA1490</div></div>
+    </div>
+    <a class="link-btn" style="margin-top:10px;" href="https://drive.google.com/file/d/1AdFyO5lOKyYVm_dOqYnURk04aGKdu4Bz/view?usp=drive_link" target="_blank">Confirmation 确认单</a>
+  </div>
+
+  <div class="list-card tbd">
+    <div class="top">
+      <span class="when"><span class="d">Jun 9</span>TBD</span>
+      <span class="who-pill">Amy + 晗晗</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">GLA/EDI</div><div class="city">Scotland</div><div class="time">— · —</div></div>
+      <div class="arrow">→<span class="num">~3h</span></div>
+      <div class="pt r"><div class="airport">BCN</div><div class="city">Barcelona</div><div class="time">— · —</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Status</div><div class="v">待预订</div></div>
+      <div class="item"><div class="k">Options</div><div class="v">Vueling · Ryanair · easyJet</div></div>
+    </div>
+  </div>
+
+  <div class="list-card">
+    <div class="top">
+      <span class="when"><span class="d">Jun 11→12</span>VS 24</span>
+      <span class="who-pill">Eric</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">LAX</div><div class="city">Los Angeles</div><div class="time">23:15 · 6/11</div></div>
+      <div class="arrow">→<span class="num">overnight</span></div>
+      <div class="pt r"><div class="airport">LHR</div><div class="city">London</div><div class="time">17:35 · 6/12</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Carrier</div><div class="v">Virgin Atlantic</div></div>
+      <div class="item"><div class="k">Flight</div><div class="v">VS24</div></div>
+    </div>
+    <a class="link-btn" style="margin-top:10px;" href="https://drive.google.com/file/d/1E1lCdMExEXJjhjjEftbmQiDY1dIeYF1J/view?usp=drive_link" target="_blank">Confirmation 确认单</a>
+  </div>
+
+  <div class="list-card tbd">
+    <div class="top">
+      <span class="when"><span class="d">Jun 12</span>TBD</span>
+      <span class="who-pill">Amy</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">BCN</div><div class="city">Barcelona</div><div class="time">— · —</div></div>
+      <div class="arrow">→<span class="num">~2h15m</span></div>
+      <div class="pt r"><div class="airport">LHR/LGW</div><div class="city">London</div><div class="time">— · —</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Status</div><div class="v">待预订</div></div>
+      <div class="item"><div class="k">建议</div><div class="v">16:00 前抵伦敦接 Eric</div></div>
+    </div>
+  </div>
+
+  <div class="list-card">
+    <div class="top">
+      <span class="when"><span class="d">Jun 15</span>BA 0312</span>
+      <span class="who-pill">Amy + Eric</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">LHR</div><div class="city">London</div><div class="time">18:20</div></div>
+      <div class="arrow">→<span class="num">1h15m</span></div>
+      <div class="pt r"><div class="airport">CDG</div><div class="city">Paris</div><div class="time">20:35</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Carrier</div><div class="v">British Airways</div></div>
+      <div class="item"><div class="k">Flight</div><div class="v">BA0312</div></div>
+    </div>
+    <a class="link-btn" style="margin-top:10px;" href="https://drive.google.com/file/d/1IshN9CZen10lvR0iXSOPA1Ev8C3UOJ3M/view?usp=drive_link" target="_blank">Confirmation 确认单</a>
+  </div>
+
+  <div class="list-card">
+    <div class="top">
+      <span class="when"><span class="d">Jun 19</span>IB 5015</span>
+      <span class="who-pill">Amy + Eric</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">ORY</div><div class="city">Paris Orly T1</div><div class="time">15:15</div></div>
+      <div class="arrow">→<span class="num">1h45m</span></div>
+      <div class="pt r"><div class="airport">FLR</div><div class="city">Florence</div><div class="time">17:00</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Carrier</div><div class="v">Iberia</div></div>
+      <div class="item"><div class="k">Flight</div><div class="v">IB5015</div></div>
+    </div>
+  </div>
+
+  <div class="list-card tbd">
+    <div class="top">
+      <span class="when"><span class="d">Jun 21</span>Train</span>
+      <span class="who-pill">Amy + Eric</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">FI</div><div class="city">Firenze S.M.N.</div><div class="time">— ·</div></div>
+      <div class="arrow">→<span class="num">~1h</span></div>
+      <div class="pt r"><div class="airport">PI</div><div class="city">Pisa Centrale</div><div class="time">— ·</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Type</div><div class="v">Regionale · 往返</div></div>
+      <div class="item"><div class="k">Book</div><div class="v">trenitalia.com 当日买</div></div>
+    </div>
+  </div>
+
+  <div class="list-card tbd">
+    <div class="top">
+      <span class="when"><span class="d">Jun 22</span>Train</span>
+      <span class="who-pill">Amy + Eric</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">FI</div><div class="city">Firenze S.M.N.</div><div class="time">— ·</div></div>
+      <div class="arrow">→<span class="num">~1h30m</span></div>
+      <div class="pt r"><div class="airport">RM</div><div class="city">Roma Termini</div><div class="time">— ·</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Type</div><div class="v">Frecciarossa / Italo</div></div>
+      <div class="item"><div class="k">Book</div><div class="v">越早越便宜</div></div>
+    </div>
+  </div>
+
+  <div class="list-card">
+    <div class="top">
+      <span class="when"><span class="d">Jun 26→27</span>3U 3896</span>
+      <span class="who-pill">Amy + Eric</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">FCO</div><div class="city">Rome T3</div><div class="time">13:05 · 6/26</div></div>
+      <div class="arrow">→<span class="num">overnight</span></div>
+      <div class="pt r"><div class="airport">CTU</div><div class="city">Chengdu T1</div><div class="time">05:25 · 6/27</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">Carrier</div><div class="v">川航 Sichuan Air</div></div>
+      <div class="item"><div class="k">Flight</div><div class="v">3U3896</div></div>
+    </div>
+  </div>
+
+  <div class="list-card">
+    <div class="top">
+      <span class="when"><span class="d">Jun 27</span>3U 6431</span>
+      <span class="who-pill">Amy + Eric</span>
+    </div>
+    <div class="flight-route">
+      <div class="pt l"><div class="airport">CTU</div><div class="city">Chengdu T2</div><div class="time">09:15</div></div>
+      <div class="arrow">→<span class="num">3h25m</span></div>
+      <div class="pt r"><div class="airport">CGQ</div><div class="city">Changchun T2</div><div class="time">12:40</div></div>
+    </div>
+    <div class="flight-info">
+      <div class="item"><div class="k">⚠</div><div class="v">CTU T1 → T2 换航站楼</div></div>
+      <div class="item"><div class="k">Flight</div><div class="v">3U6431</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================== -->
+<!-- =============== PANEL: STAYS ====================== -->
+<!-- =================================================== -->
+<section class="panel" id="panel-stays">
+  <h2 class="panel-title">Stays <span class="num">·</span> <em>住宿</em></h2>
+  <p class="panel-lead">All accommodations across the trip.</p>
+
+  <div class="list-card tbd hotel-card">
+    <div class="top"><span class="when"><span class="d">Jun 5</span>UK — 5 nights</span><span class="who-pill">Amy</span></div>
+    <div class="h-name">Glasgow / Edinburgh <span class="en">· 苏格兰</span></div>
+    <div class="h-dates">未提供具体住宿信息 — 5 晚<span class="nights">Jun 5 → 9</span></div>
+    <span class="small">Glasgow 3晚 + Edinburgh 1天 · 是否当晚返 Glasgow 留意</span>
+  </div>
+
+  <div class="list-card tbd hotel-card">
+    <div class="top"><span class="when"><span class="d">Jun 9</span>ES — 3 nights</span><span class="who-pill">Amy + 晗晗</span></div>
+    <div class="h-name">Barcelona <span class="en">· 巴塞罗那</span></div>
+    <div class="h-dates">待预订<span class="nights">Jun 9 → 12 · 3 晚</span></div>
+    <span class="small">建议 Eixample / Gòtic / Born</span>
+  </div>
+
+  <div class="list-card hotel-card">
+    <div class="top"><span class="when"><span class="d">Jun 12</span>UK — 3 nights</span><span class="who-pill">Amy + Eric</span></div>
+    <div class="h-name">Tower Suites by Blue Orchid <span class="en">· 伦敦塔套房</span></div>
+    <div class="h-dates">入住<span class="nights">Jun 12 → 15 · 3 晚</span></div>
+    <span class="small">伦敦塔与塔桥附近 · City of London 区</span>
+    <div style="margin-top:8px;">
+      <a class="link-btn" href="https://drive.google.com/file/d/1S6ycxI3Er8mGIxlGRBFizSiHxULcvGUB/view?usp=drive_link" target="_blank">Confirmation 确认单</a>
+    </div>
+  </div>
+
+  <div class="list-card tbd hotel-card">
+    <div class="top"><span class="when"><span class="d">Jun 15</span>FR — 4 nights</span><span class="who-pill">Amy + Eric</span></div>
+    <div class="h-name">Paris <span class="en">· 巴黎</span></div>
+    <div class="h-dates">待预订<span class="nights">Jun 15 → 19 · 4 晚</span></div>
+    <span class="small">建议 1/4/6/7 区 · 地铁交点附近</span>
+  </div>
+
+  <div class="list-card hotel-card">
+    <div class="top"><span class="when"><span class="d">Jun 19</span>IT — 3 nights</span><span class="who-pill">Amy + Eric</span></div>
+    <div class="h-name">Hotel Indigo Florence by IHG <span class="en">· 佛罗伦萨</span></div>
+    <div class="h-dates">入住<span class="nights">Jun 19 → 22 · 3 晚</span></div>
+    <div style="margin-top:8px;">
+      <a class="link-btn" href="https://drive.google.com/file/d/1U2QGYFdBs-5-FvRnPq39RQxjGr_p7vpF/view?usp=sharing" target="_blank">Confirmation 确认单</a>
+    </div>
+  </div>
+
+  <div class="list-card hotel-card">
+    <div class="top"><span class="when"><span class="d">Jun 22</span>IT — 4 nights</span><span class="who-pill">Amy + Eric</span></div>
+    <div class="h-name">Adriana Boutique Guest House <span class="en">· 罗马</span></div>
+    <div class="h-dates">入住<span class="nights">Jun 22 → 26 · 4 晚</span></div>
+    <div style="margin-top:8px;">
+      <a class="link-btn" href="https://drive.google.com/file/d/1xSRJ4Nz6nJatUV5k-RiI_rwNETAd4QXe/view?usp=sharing" target="_blank">Confirmation 确认单</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- =================================================== -->
+<!-- =============== PANEL: TOOLS ====================== -->
+<!-- =================================================== -->
+<section class="panel" id="panel-tools">
+  <h2 class="panel-title">Tools <span class="num">·</span> <em>实用工具</em></h2>
+  <p class="panel-lead">Exchange · Time zones · Phrases</p>
+
+  <!-- CURRENCY -->
+  <div class="tool-section">
+    <h3>汇率换算 <span class="en">Currency</span></h3>
+    <div class="fx-row">
+      <div class="fx-input">
+        <span class="sym" id="fx-sym-1">$</span>
+        <input type="number" id="fx-1" value="100" step="any" inputmode="decimal">
+        <select id="fx-cur-1">
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+          <option value="EUR">EUR</option>
+          <option value="CNY">CNY</option>
+        </select>
+      </div>
+      <div class="fx-arrow">⇄</div>
+      <div class="fx-input">
+        <span class="sym" id="fx-sym-2">€</span>
+        <input type="number" id="fx-2" value="92" step="any" inputmode="decimal">
+        <select id="fx-cur-2">
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+          <option value="EUR" selected>EUR</option>
+          <option value="CNY">CNY</option>
+        </select>
+      </div>
+    </div>
+    <div class="fx-rates">
+      <div class="row"><span class="pair">1 USD →</span><span class="rate">≈ 0.79 GBP · 0.92 EUR · 7.20 CNY</span></div>
+      <div class="row"><span class="pair">1 GBP →</span><span class="rate">≈ 1.27 USD · 1.16 EUR · 9.15 CNY</span></div>
+      <div class="row"><span class="pair">1 EUR →</span><span class="rate">≈ 1.09 USD · 0.86 GBP · 7.83 CNY</span></div>
+      <div class="editable">汇率为参考值 · 出发前请在 xe.com 或银行 app 查最新</div>
+    </div>
+  </div>
+
+  <!-- TIME ZONES -->
+  <div class="tool-section">
+    <h3>时区时差 <span class="en">Time Zones</span></h3>
+    <div class="tz-grid">
+      <div class="tz-card home">
+        <div class="city">Los Angeles</div>
+        <div class="time" id="tz-la">—</div>
+        <div class="day" id="tz-la-day">—</div>
+      </div>
+      <div class="tz-card">
+        <div class="city">London 伦敦</div>
+        <div class="time" id="tz-lon">—</div>
+        <div class="day" id="tz-lon-day">+8h</div>
+      </div>
+      <div class="tz-card">
+        <div class="city">Paris/Barcelona/Rome</div>
+        <div class="time" id="tz-eu">—</div>
+        <div class="day" id="tz-eu-day">+9h</div>
+      </div>
+      <div class="tz-card">
+        <div class="city">Beijing 北京</div>
+        <div class="time" id="tz-bj">—</div>
+        <div class="day" id="tz-bj-day">+15h</div>
+      </div>
+    </div>
+    <div class="tz-diff">
+      6月夏令时 · LA → London +8h · LA → 欧陆 +9h · LA → 北京 +15h
+    </div>
+  </div>
+
+  <!-- PHRASES -->
+  <div class="tool-section">
+    <h3>常用短语 <span class="en">Phrases</span></h3>
+    <div class="lang-tabs">
+      <button class="lang-tab active" data-lang="es">Español</button>
+      <button class="lang-tab" data-lang="fr">Français</button>
+      <button class="lang-tab" data-lang="it">Italiano</button>
+    </div>
+
+    <!-- SPANISH -->
+    <div class="phrase-set active" id="lang-es">
+      <div class="phrase-group">
+        <h4>问候 · Greetings</h4>
+        <div class="phrase">
+          <div class="target">Hola</div>
+          <div class="pron">/ˈo.la/ 哦-拉</div>
+          <div class="meaning"><span class="cn">你好</span> · Hello</div>
+        </div>
+        <div class="phrase">
+          <div class="target">Buenos días / Buenas tardes / Buenas noches</div>
+          <div class="pron">布埃诺斯 迪亚斯 / 布埃纳斯 塔尔德斯 / 诺切斯</div>
+          <div class="meaning"><span class="cn">早上好 / 下午好 / 晚上好</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Por favor</div>
+          <div class="pron">波尔 法沃</div>
+          <div class="meaning"><span class="cn">请</span> · Please</div>
+        </div>
+        <div class="phrase">
+          <div class="target">Gracias / De nada</div>
+          <div class="pron">格拉西亚斯 / 德 纳达</div>
+          <div class="meaning"><span class="cn">谢谢 / 不客气</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Perdón / Lo siento</div>
+          <div class="pron">佩尔东 / 罗 西恩托</div>
+          <div class="meaning"><span class="cn">抱歉 / 对不起</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Sí / No</div>
+          <div class="pron">西 / 诺</div>
+          <div class="meaning"><span class="cn">是 / 不</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>餐厅 · Restaurant</h4>
+        <div class="phrase">
+          <div class="target">Una mesa para dos, por favor</div>
+          <div class="pron">乌纳 梅萨 帕拉 多斯</div>
+          <div class="meaning"><span class="cn">两人桌, 谢谢</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">La carta, por favor</div>
+          <div class="pron">拉 卡塔</div>
+          <div class="meaning"><span class="cn">请给菜单</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Agua sin gas / con gas</div>
+          <div class="pron">阿瓜 辛 嘎斯 / 孔 嘎斯</div>
+          <div class="meaning"><span class="cn">无气泡水 / 气泡水</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">La cuenta, por favor</div>
+          <div class="pron">拉 昆塔</div>
+          <div class="meaning"><span class="cn">买单</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">¿Aceptan tarjeta?</div>
+          <div class="pron">阿塞普坦 塔尔黑塔</div>
+          <div class="meaning"><span class="cn">能刷卡吗?</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>问路 · Directions</h4>
+        <div class="phrase">
+          <div class="target">¿Dónde está…?</div>
+          <div class="pron">栋德 埃斯塔</div>
+          <div class="meaning"><span class="cn">……在哪?</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">¿Cuánto cuesta?</div>
+          <div class="pron">寬托 寬埃斯塔</div>
+          <div class="meaning"><span class="cn">多少钱?</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">A la izquierda / derecha / recto</div>
+          <div class="pron">伊兹基耶达 / 德雷恰 / 雷克托</div>
+          <div class="meaning"><span class="cn">左 / 右 / 直走</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>紧急 · Emergency</h4>
+        <div class="phrase">
+          <div class="target">¡Ayuda! / ¡Socorro!</div>
+          <div class="pron">阿尤达 / 索科罗</div>
+          <div class="meaning"><span class="cn">救命!</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Llame a la policía / a una ambulancia</div>
+          <div class="pron">亚梅 阿 拉 波利西亚 / 阿姆布兰西亚</div>
+          <div class="meaning"><span class="cn">叫警察 / 救护车</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Me he perdido</div>
+          <div class="pron">梅 埃 佩迪多</div>
+          <div class="meaning"><span class="cn">我迷路了</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">No hablo español</div>
+          <div class="pron">诺 阿布罗 埃斯帕诺尔</div>
+          <div class="meaning"><span class="cn">我不会说西语</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>数字 · Numbers</h4>
+        <div class="phrase">
+          <div class="target">1 uno · 2 dos · 3 tres · 4 cuatro · 5 cinco</div>
+          <div class="pron">乌诺 · 多斯 · 特雷斯 · 寬阿特罗 · 辛科</div>
+        </div>
+        <div class="phrase">
+          <div class="target">6 seis · 7 siete · 8 ocho · 9 nueve · 10 diez</div>
+          <div class="pron">塞伊斯 · 西埃特 · 奥乔 · 努埃韦 · 迭斯</div>
+        </div>
+        <div class="phrase">
+          <div class="target">20 veinte · 50 cincuenta · 100 cien</div>
+          <div class="pron">贝因特 · 辛寬恩塔 · 西恩</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRENCH -->
+    <div class="phrase-set" id="lang-fr">
+      <div class="phrase-group">
+        <h4>问候 · Salutations</h4>
+        <div class="phrase">
+          <div class="target">Bonjour</div>
+          <div class="pron">bohn-ZHOOR · 蹦如</div>
+          <div class="meaning"><span class="cn">你好 (白天)</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Bonsoir / Bonne nuit</div>
+          <div class="pron">蹦斯瓦 / 蹦 努伊</div>
+          <div class="meaning"><span class="cn">晚上好 / 晚安</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">S'il vous plaît</div>
+          <div class="pron">西尔 乌 普雷</div>
+          <div class="meaning"><span class="cn">请</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Merci / Merci beaucoup</div>
+          <div class="pron">梅尔西 / 梅尔西 博枯</div>
+          <div class="meaning"><span class="cn">谢谢 / 非常感谢</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Je vous en prie / De rien</div>
+          <div class="pron">日 乌 桑 普利 / 德 利安</div>
+          <div class="meaning"><span class="cn">不客气</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Excusez-moi / Pardon</div>
+          <div class="pron">埃克斯库泽 莫瓦 / 帕东</div>
+          <div class="meaning"><span class="cn">不好意思 / 对不起</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Oui / Non</div>
+          <div class="pron">维 / 农</div>
+          <div class="meaning"><span class="cn">是 / 不</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>餐厅 · Restaurant</h4>
+        <div class="phrase">
+          <div class="target">Une table pour deux, s'il vous plaît</div>
+          <div class="pron">尤恩 塔布勒 普尔 德</div>
+          <div class="meaning"><span class="cn">两人桌, 谢谢</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">La carte, s'il vous plaît</div>
+          <div class="pron">拉 卡尔特</div>
+          <div class="meaning"><span class="cn">请给菜单</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">De l'eau plate / gazeuse</div>
+          <div class="pron">德 罗 普拉特 / 加泽兹</div>
+          <div class="meaning"><span class="cn">普通水 / 气泡水</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">L'addition, s'il vous plaît</div>
+          <div class="pron">拉迪松</div>
+          <div class="meaning"><span class="cn">买单</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Je voudrais…</div>
+          <div class="pron">日 乌德雷</div>
+          <div class="meaning"><span class="cn">我想要……</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>问路 · Direction</h4>
+        <div class="phrase">
+          <div class="target">Où est…?</div>
+          <div class="pron">乌 埃</div>
+          <div class="meaning"><span class="cn">……在哪?</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">C'est combien?</div>
+          <div class="pron">塞 孔比安</div>
+          <div class="meaning"><span class="cn">多少钱?</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">À gauche / à droite / tout droit</div>
+          <div class="pron">阿 戈什 / 阿 杜阿特 / 图 杜阿</div>
+          <div class="meaning"><span class="cn">左 / 右 / 直走</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>紧急 · Urgence</h4>
+        <div class="phrase">
+          <div class="target">Au secours!</div>
+          <div class="pron">奥 斯库尔</div>
+          <div class="meaning"><span class="cn">救命!</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Appelez la police / une ambulance</div>
+          <div class="pron">阿普雷 拉 波利斯 / 尤恩 昂布朗斯</div>
+          <div class="meaning"><span class="cn">叫警察 / 救护车</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Je suis perdu(e)</div>
+          <div class="pron">日 苏伊 佩尔杜</div>
+          <div class="meaning"><span class="cn">我迷路了</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Je ne parle pas français</div>
+          <div class="pron">日 讷 帕勒 帕 弗朗赛</div>
+          <div class="meaning"><span class="cn">我不会法语</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>数字 · Nombres</h4>
+        <div class="phrase">
+          <div class="target">1 un · 2 deux · 3 trois · 4 quatre · 5 cinq</div>
+          <div class="pron">安 · 德 · 特瓦 · 卡特 · 桑克</div>
+        </div>
+        <div class="phrase">
+          <div class="target">6 six · 7 sept · 8 huit · 9 neuf · 10 dix</div>
+          <div class="pron">西斯 · 塞特 · 维特 · 讷夫 · 迪斯</div>
+        </div>
+        <div class="phrase">
+          <div class="target">20 vingt · 50 cinquante · 100 cent</div>
+          <div class="pron">万 · 桑康特 · 桑</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITALIAN -->
+    <div class="phrase-set" id="lang-it">
+      <div class="phrase-group">
+        <h4>问候 · Saluti</h4>
+        <div class="phrase">
+          <div class="target">Ciao / Salve</div>
+          <div class="pron">乔 / 萨尔维</div>
+          <div class="meaning"><span class="cn">你好 (随意 / 正式)</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Buongiorno / Buonasera</div>
+          <div class="pron">本焦尔诺 / 本娜塞拉</div>
+          <div class="meaning"><span class="cn">早上好 / 晚上好</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Per favore</div>
+          <div class="pron">佩尔 法沃雷</div>
+          <div class="meaning"><span class="cn">请</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Grazie / Prego</div>
+          <div class="pron">格拉契耶 / 普雷戈</div>
+          <div class="meaning"><span class="cn">谢谢 / 不客气</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Scusi / Mi dispiace</div>
+          <div class="pron">斯库齐 / 米 迪斯皮亚切</div>
+          <div class="meaning"><span class="cn">不好意思 / 抱歉</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Sì / No</div>
+          <div class="pron">西 / 诺</div>
+          <div class="meaning"><span class="cn">是 / 不</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>餐厅 · Ristorante</h4>
+        <div class="phrase">
+          <div class="target">Un tavolo per due, per favore</div>
+          <div class="pron">温 塔沃罗 佩尔 杜埃</div>
+          <div class="meaning"><span class="cn">两人桌, 谢谢</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Il menù, per favore</div>
+          <div class="pron">伊尔 美努</div>
+          <div class="meaning"><span class="cn">请给菜单</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Acqua naturale / frizzante</div>
+          <div class="pron">阿夸 纳图拉勒 / 弗里赞特</div>
+          <div class="meaning"><span class="cn">普通水 / 气泡水</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Il conto, per favore</div>
+          <div class="pron">伊尔 孔托</div>
+          <div class="meaning"><span class="cn">买单</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Vorrei…</div>
+          <div class="pron">沃雷伊</div>
+          <div class="meaning"><span class="cn">我想要……</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Buonissimo!</div>
+          <div class="pron">本尼西莫</div>
+          <div class="meaning"><span class="cn">太好吃了!</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>问路 · Direzioni</h4>
+        <div class="phrase">
+          <div class="target">Dov'è…?</div>
+          <div class="pron">多维</div>
+          <div class="meaning"><span class="cn">……在哪?</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Quanto costa?</div>
+          <div class="pron">寬托 科斯塔</div>
+          <div class="meaning"><span class="cn">多少钱?</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">A sinistra / a destra / dritto</div>
+          <div class="pron">阿 西尼斯特拉 / 阿 德斯特拉 / 德里托</div>
+          <div class="meaning"><span class="cn">左 / 右 / 直走</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>紧急 · Emergenza</h4>
+        <div class="phrase">
+          <div class="target">Aiuto!</div>
+          <div class="pron">阿尤托</div>
+          <div class="meaning"><span class="cn">救命!</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Chiami la polizia / un'ambulanza</div>
+          <div class="pron">基亚米 拉 波利齐亚 / 温 安布兰扎</div>
+          <div class="meaning"><span class="cn">叫警察 / 救护车</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Mi sono perso(a)</div>
+          <div class="pron">米 索诺 佩尔索</div>
+          <div class="meaning"><span class="cn">我迷路了</span></div>
+        </div>
+        <div class="phrase">
+          <div class="target">Non parlo italiano</div>
+          <div class="pron">农 帕尔罗 伊塔利亚诺</div>
+          <div class="meaning"><span class="cn">我不会意语</span></div>
+        </div>
+      </div>
+      <div class="phrase-group">
+        <h4>数字 · Numeri</h4>
+        <div class="phrase">
+          <div class="target">1 uno · 2 due · 3 tre · 4 quattro · 5 cinque</div>
+          <div class="pron">乌诺 · 杜埃 · 特雷 · 寬阿特罗 · 钦寬埃</div>
+        </div>
+        <div class="phrase">
+          <div class="target">6 sei · 7 sette · 8 otto · 9 nove · 10 dieci</div>
+          <div class="pron">塞伊 · 塞特 · 奥托 · 诺韦 · 迪埃奇</div>
+        </div>
+        <div class="phrase">
+          <div class="target">20 venti · 50 cinquanta · 100 cento</div>
+          <div class="pron">文蒂 · 钦寬安塔 · 钦托</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================== -->
+<!-- =============== PANEL: NOTES ====================== -->
+<!-- =================================================== -->
+<section class="panel" id="panel-notes">
+  <h2 class="panel-title">Notes <span class="num">·</span> <em>笔记 · 各国须知</em></h2>
+  <p class="panel-lead">Practical knowledge by country. 想加你自己学的笔记请告诉我.</p>
+
+  <!-- UK -->
+  <div class="notes-country">
+    <div class="head">
+      <span class="flag">🇬🇧</span>
+      <span class="name">United Kingdom <span class="en">英国</span></span>
+    </div>
+    <div class="body">
+      <div class="note-block">
+        <div class="label">货币 / Money</div>
+        <div class="content"><strong>英镑 GBP £</strong> · 北爱苏格兰部分自印钞票 (英国全境通用但欧陆不收). 几乎所有地方刷卡, 现金只为小费/市集. 苹果/谷歌钱包覆盖率极高.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">小费 / Tipping</div>
+        <div class="content">餐厅账单常含 <strong>12.5% service charge</strong>, 含了就不另给; 没含可给 10-15%. 酒吧台点酒不需要小费. Taxi 凑整即可.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">插座 / Plug</div>
+        <div class="content"><strong>Type G</strong> 方头三相 · 230V / 50Hz · 必须带转换插</div>
+      </div>
+      <div class="note-block">
+        <div class="label">交通 / Transit</div>
+        <div class="content">伦敦地铁/巴士/DLR/Overground 用 <strong>Contactless 信用卡或 Apple Pay 直接刷</strong>, 自动按当日封顶价收费. 不要买 paper ticket. 苏格兰内 ScotRail 火车提前买便宜.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">习俗 / Etiquette</div>
+        <div class="content">扶梯靠右站, 左侧给人走. 排队是国教 · 不要插队. 室内不能砍价. 司机靠左行驶, 过马路先看右.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">紧急 / Emergency</div>
+        <div class="content"><strong>999</strong> 或 <strong>112</strong> · 中国驻英大使馆 +44 20 7299 4049 · 苏格兰爱丁堡总领馆 +44 131 337 9899</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPAIN -->
+  <div class="notes-country">
+    <div class="head">
+      <span class="flag">🇪🇸</span>
+      <span class="name">España <span class="en">西班牙</span></span>
+    </div>
+    <div class="body">
+      <div class="note-block">
+        <div class="label">货币 / Money</div>
+        <div class="content"><strong>欧元 EUR €</strong> · 卡支付普及 · 小餐馆/市场建议备零钱. ATM 取现注意手续费.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">小费 / Tipping</div>
+        <div class="content">不强制 · 满意凑整或留 5-10% 即可. 出租车凑整.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">插座 / Plug</div>
+        <div class="content"><strong>Type C/F</strong> 圆头双相 · 230V · 全欧陆通用</div>
+      </div>
+      <div class="note-block">
+        <div class="label">时间 / Schedule</div>
+        <div class="content">西班牙吃饭晚: 午餐 14:00-16:00, 晚餐 21:00+. <strong>Siesta 13:00-17:00</strong> 小店可能关门. 餐厅 19:00 前可能根本没开门.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">巴塞罗那特别提示</div>
+        <div class="content"><strong>扒手警戒最高 ★★★</strong> · La Rambla / 地铁 / 旅游景点最常见. 包前背 · 钱包不放后裤袋 · 拍照时手不离机. 加泰罗尼亚语和西语并行, 西语全境通行.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">必尝 / Must-eat</div>
+        <div class="content">Tapas · Paella (海鲜饭 - 注意正宗的中午吃) · Jamón ibérico 火腿 · Crema catalana · Vermut 开胃酒</div>
+      </div>
+      <div class="note-block">
+        <div class="label">紧急 / Emergency</div>
+        <div class="content"><strong>112</strong> 全国通用 · 中国驻西大使馆 +34 91 745 8543 · 巴塞罗那总领馆 +34 93 254 1196</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRANCE -->
+  <div class="notes-country">
+    <div class="head">
+      <span class="flag">🇫🇷</span>
+      <span class="name">France <span class="en">法国 / 巴黎</span></span>
+    </div>
+    <div class="body">
+      <div class="note-block">
+        <div class="label">货币 / Money</div>
+        <div class="content"><strong>欧元 EUR €</strong> · 卡支付主流 · 小面包店仍可能只收现金或最低消费</div>
+      </div>
+      <div class="note-block">
+        <div class="label">小费 / Tipping</div>
+        <div class="content">账单已含 <strong>service compris</strong>, 满意凑零钱或 1-2 欧即可. 计程车凑整.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">插座 / Plug</div>
+        <div class="content"><strong>Type C/E</strong> 圆头 · 230V</div>
+      </div>
+      <div class="note-block">
+        <div class="label">语言习俗 / Etiquette</div>
+        <div class="content">进店务必先说 <strong>"Bonjour"</strong> · 离店说 <strong>"Au revoir"</strong>. 不打招呼直接问问题被认为很无礼. 法国人很多会英语, 但请先尝试法语开头. 餐厅吃饭节奏慢, 不要催, 要主动招呼服务员买单.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">巴黎特别提示</div>
+        <div class="content"><strong>扒手 ★★★</strong> · 地铁 1/4/8 号线 · 蒙马特 · 铁塔下小心 "签名请愿"/"金戒指" 骗局. <strong>免费厕所</strong>: 教堂/百货公司/快餐店. 大博物馆周二很多关门, 周一也有不少.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">交通 / Metro</div>
+        <div class="content">Métro 系统密集易用 · <strong>Navigo Easy</strong> 实体卡或 iPhone 上 Navigo 钱包. 单程 t+ €2.15. 注意不同公司/线路:Métro vs RER vs Tramway.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">紧急 / Emergency</div>
+        <div class="content"><strong>112</strong> 通用 · <strong>17</strong> 警察 · <strong>15</strong> 医疗 · 中国驻法大使馆 +33 1 4936 7790</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITALY -->
+  <div class="notes-country">
+    <div class="head">
+      <span class="flag">🇮🇹</span>
+      <span class="name">Italia <span class="en">意大利</span></span>
+    </div>
+    <div class="body">
+      <div class="note-block">
+        <div class="label">货币 / Money</div>
+        <div class="content"><strong>欧元 EUR €</strong> · 大店刷卡, 小餐馆/咖啡/出租司机可能优先现金. 备 €50-100 零钱.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">小费 / Tipping</div>
+        <div class="content">账单常有 <strong>"coperto"</strong> (人头费 €1-3) 和/或 <strong>"servizio"</strong> 服务费 — 这两项就替代小费了. 满意可再凑 1-2 欧.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">咖啡习俗</div>
+        <div class="content">早上 cappuccino, 10am 后改 espresso (本地人 11am 不喝奶咖啡). 站在吧台喝最便宜 (€1-1.5), 坐下加倍. 不说"latte"会被给一杯纯牛奶.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">教堂着装 / Dress code</div>
+        <div class="content"><strong>梵蒂冈 / 圣彼得 / 米兰主教座堂 / 佛罗伦萨主教座堂</strong> 等都要遮肩遮膝 · 短裤短裙背心进不去 · 带条围巾备用</div>
+      </div>
+      <div class="note-block">
+        <div class="label">交通 / Transit</div>
+        <div class="content">城际首选高铁 Frecciarossa / Italo · 提前 1-2 月买价差极大. <strong>火车票上车前打票 (Regionale 区间车)</strong> — 高铁不用. 罗马公交/地铁紧买紧用, 不打票会被罚.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">扒手 / Pickpockets</div>
+        <div class="content"><strong>罗马 Termini 车站 / 地铁 A 线 / 斗兽场周围 ★★★★</strong> · 佛罗伦萨较弱 · 包要前背或斜挎不离手</div>
+      </div>
+      <div class="note-block">
+        <div class="label">紧急 / Emergency</div>
+        <div class="content"><strong>112</strong> 通用 · <strong>113</strong> 警察 · <strong>118</strong> 急救 · 中国驻意大使馆 +39 06 9652 4200 · 佛罗伦萨总领馆 +39 055 5970640</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes-country">
+    <div class="head">
+      <span class="flag">📌</span>
+      <span class="name">通用提示 <span class="en">Universal Tips</span></span>
+    </div>
+    <div class="body">
+      <div class="note-block">
+        <div class="label">护照 / Passport</div>
+        <div class="content">随身带护照原件 + <strong>另存彩色扫描件到手机和云盘各一份</strong>. 申根区内通常不查护照但仍需带. 英国不属申根, 入英境需护照查验. </div>
+      </div>
+      <div class="note-block">
+        <div class="label">通讯 / SIM</div>
+        <div class="content">推荐 <strong>eSIM</strong> 提前购 (Airalo / Holafly / Saily 等). 欧盟单一资费, 英国常独立计费. 美国本号在欧洲资费高, 出发前问运营商欧洲漫游包.</div>
+      </div>
+      <div class="note-block">
+        <div class="label">退税 / VAT Refund</div>
+        <div class="content">非欧盟居民单店满最低额度可退税. 商店要 tax-free 单 + 护照 · 离开欧盟最后一国机场盖章 · 在 Global Blue / Planet 柜台办退. <strong>最后离境是罗马 FCO 飞成都, 在罗马办退税.</strong></div>
+      </div>
+      <div class="note-block">
+        <div class="label">医疗 / Health</div>
+        <div class="content">提前买全球旅行保险 (含医疗 + 行李 + 误机). 申根国家药房 (绿十字标志) 多, 处方药需医生开. 随身带常用药 (退烧 / 肠胃 / 过敏).</div>
+      </div>
+      <div class="note-block">
+        <div class="label">备份 / Backup</div>
+        <div class="content">所有酒店地址 / 机票 / 预订 都<strong>下载离线备份</strong>到手机 (本手册即可!) · Google Maps 提前下载离线地图. </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-soft">Bon voyage</div>
+</section>
+
+</div>
+
+<!-- =================================================== -->
+<!-- =============== TAB BAR =========================== -->
+<!-- =================================================== -->
+<nav class="tabbar">
+  <button class="tab active" data-panel="panel-trip"><span class="ic">📜</span><span class="lb">行程</span></button>
+  <button class="tab" data-panel="panel-flights"><span class="ic">✈️</span><span class="lb">航班</span></button>
+  <button class="tab" data-panel="panel-stays"><span class="ic">🏛</span><span class="lb">住宿</span></button>
+  <button class="tab" data-panel="panel-tools"><span class="ic">🛠</span><span class="lb">工具</span></button>
+  <button class="tab" data-panel="panel-notes"><span class="ic">📓</span><span class="lb">笔记</span></button>
+</nav>
+
+<script>
+// =============== TAB SWITCHING ===============
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+tabs.forEach(t => {
+  t.addEventListener('click', () => {
+    const id = t.dataset.panel;
+    tabs.forEach(x => x.classList.toggle('active', x === t));
+    panels.forEach(p => p.classList.toggle('active', p.id === id));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+});
+
+// =============== QUICK JUMP ===============
+document.querySelectorAll('.quicknav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.jump;
+    const el = document.getElementById(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+
+// =============== TRIP STATUS ===============
+// Trip: Jun 4 (LA depart) → Jun 26 (Rome depart), days 1..23
+function updateStatus() {
+  const now = new Date();
+  // Trip starts Jun 4, 2026 LA time (use noon to avoid TZ edge)
+  const tripStart = new Date(2026, 5, 4);
+  const tripEnd = new Date(2026, 5, 27); // include Jun 26 fully
+  const statusText = document.getElementById('status-text');
+  const statusTime = document.getElementById('status-time');
+
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const start = new Date(tripStart.getFullYear(), tripStart.getMonth(), tripStart.getDate());
+  const end = new Date(tripEnd.getFullYear(), tripEnd.getMonth(), tripEnd.getDate());
+  const diff = Math.round((today - start) / 86400000);
+
+  if (today < start) {
+    const days = Math.round((start - today) / 86400000);
+    statusText.innerHTML = `<span class="num">${days}</span> days to go`;
+  } else if (today >= end) {
+    statusText.innerHTML = `Trip <span class="num">complete</span>`;
+  } else {
+    const dayNum = diff + 1;
+    statusText.innerHTML = `Day <span class="num">${dayNum}</span> of 23`;
+  }
+  // local time HH:MM
+  const hh = String(now.getHours()).padStart(2,'0');
+  const mm = String(now.getMinutes()).padStart(2,'0');
+  statusTime.textContent = `${hh}:${mm}`;
+}
+updateStatus();
+setInterval(updateStatus, 30000);
+
+// =============== TIME ZONES ===============
+const tzList = [
+  { id: 'tz-la', tz: 'America/Los_Angeles' },
+  { id: 'tz-lon', tz: 'Europe/London' },
+  { id: 'tz-eu', tz: 'Europe/Paris' },
+  { id: 'tz-bj', tz: 'Asia/Shanghai' }
+];
+function updateClocks() {
+  const now = new Date();
+  tzList.forEach(t => {
+    const el = document.getElementById(t.id);
+    const dayEl = document.getElementById(t.id + '-day');
+    if (!el) return;
+    try {
+      const fmt = new Intl.DateTimeFormat('en-US', {
+        timeZone: t.tz, hour: '2-digit', minute: '2-digit', hour12: false
+      });
+      el.textContent = fmt.format(now);
+      if (dayEl && t.id !== 'tz-la') {
+        const dayFmt = new Intl.DateTimeFormat('en-US', {
+          timeZone: t.tz, weekday: 'short', day: 'numeric', month: 'short'
+        });
+        dayEl.textContent = dayFmt.format(now);
+      }
+      if (dayEl && t.id === 'tz-la') {
+        const dayFmt = new Intl.DateTimeFormat('en-US', {
+          timeZone: t.tz, weekday: 'short', day: 'numeric', month: 'short'
+        });
+        dayEl.textContent = dayFmt.format(now);
+      }
+    } catch(e) {}
+  });
+}
+updateClocks();
+setInterval(updateClocks, 1000);
+
+// =============== CURRENCY CONVERTER ===============
+// Approximate rates per 1 USD
+const rates = { USD: 1, GBP: 0.79, EUR: 0.92, CNY: 7.20 };
+const symbols = { USD: '$', GBP: '£', EUR: '€', CNY: '¥' };
+
+const fx1 = document.getElementById('fx-1');
+const fx2 = document.getElementById('fx-2');
+const cur1 = document.getElementById('fx-cur-1');
+const cur2 = document.getElementById('fx-cur-2');
+const sym1 = document.getElementById('fx-sym-1');
+const sym2 = document.getElementById('fx-sym-2');
+
+function convert(from, to, val) {
+  const usd = val / rates[from];
+  return usd * rates[to];
+}
+function updateSyms() {
+  sym1.textContent = symbols[cur1.value];
+  sym2.textContent = symbols[cur2.value];
+}
+function calc(direction) {
+  updateSyms();
+  if (direction === 1) {
+    const v = parseFloat(fx1.value) || 0;
+    fx2.value = +convert(cur1.value, cur2.value, v).toFixed(2);
+  } else {
+    const v = parseFloat(fx2.value) || 0;
+    fx1.value = +convert(cur2.value, cur1.value, v).toFixed(2);
+  }
+}
+fx1.addEventListener('input', () => calc(1));
+fx2.addEventListener('input', () => calc(2));
+cur1.addEventListener('change', () => calc(1));
+cur2.addEventListener('change', () => calc(1));
+updateSyms();
+calc(1);
+
+// =============== PHRASE LANG TABS ===============
+document.querySelectorAll('.lang-tab').forEach(t => {
+  t.addEventListener('click', () => {
+    const l = t.dataset.lang;
+    document.querySelectorAll('.lang-tab').forEach(x => x.classList.toggle('active', x === t));
+    document.querySelectorAll('.phrase-set').forEach(s => s.classList.toggle('active', s.id === 'lang-' + l));
+  });
+});
+</script>
+</body>
+</html>
