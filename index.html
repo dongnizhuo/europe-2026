@@ -549,6 +549,69 @@ body::before {
 }
 
 @media (max-width: 560px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  .app {
+    width: 100%;
+  }
+  .topnav {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .topnav-track {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .topnav-track::-webkit-scrollbar {
+    display: none;
+  }
+  .topnav-link {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 62px;
+    padding: 0 10px;
+    font-size: 11px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .topnav-link[data-panel="panel-flights"] {
+    min-width: 112px;
+  }
+  .panel {
+    padding: 16px 12px 28px;
+  }
+  .home-hero {
+    padding-bottom: 14px;
+  }
+  .home-title {
+    font-size: 34px;
+    line-height: 1.08;
+    margin-bottom: 16px;
+  }
+  .calendar-head {
+    align-items: center;
+    gap: 10px;
+  }
+  .today-plan-btn {
+    min-height: 34px;
+    padding: 0 12px;
+    white-space: nowrap;
+  }
+  .tbd-banner {
+    padding: 12px;
+  }
+  .tbd-list {
+    grid-template-columns: 1fr;
+  }
+  .tbd-list label {
+    min-width: 0;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
   .guide-calendar {
     padding: 10px;
   }
@@ -562,15 +625,63 @@ body::before {
     gap: 4px;
   }
   .guide-cal-day {
-    min-height: 60px;
+    min-height: 56px;
     border-radius: 8px;
-    padding: 6px;
+    padding: 5px;
   }
   .guide-cal-date {
     font-size: 15px;
   }
   .guide-cal-city {
-    font-size: 10px;
+    font-size: 9px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+  .day {
+    border-radius: 14px;
+  }
+  .day-header {
+    padding: 16px 14px 14px;
+  }
+  .day-body {
+    padding: 12px 14px 14px;
+  }
+  .day-place {
+    font-size: 24px;
+    line-height: 1.1;
+  }
+  .day-meta {
+    gap: 6px;
+  }
+  .day-meta span {
+    max-width: 100%;
+  }
+  .reservation-item {
+    padding: 12px 10px 12px 36px;
+  }
+  .reservation-item::before {
+    left: 15px;
+  }
+  .reservation-item::after {
+    left: 10px;
+  }
+  .reservation-time {
+    font-size: 21px;
+  }
+  .reservation-title,
+  .flow-list.new-flow li,
+  .backup-item,
+  .stay-mini-name {
+    overflow-wrap: anywhere;
+  }
+  .reservation-actions,
+  .stay-actions {
+    gap: 6px;
+  }
+  .link-btn {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.25;
   }
   .home-summary {
     grid-template-columns: 1fr;
@@ -595,6 +706,7 @@ body::before {
   .transport-main {
     grid-template-columns: 1fr;
     gap: 12px;
+    padding: 12px 10px;
   }
   .transport-carrier,
   .transport-meta {
@@ -603,6 +715,23 @@ body::before {
   }
   .transport-route {
     grid-template-columns: 1fr auto 1fr;
+  }
+  .transport-number {
+    font-size: 23px;
+  }
+  .transport-place {
+    font-size: 21px;
+  }
+  .transport-company,
+  .transport-terminal,
+  .transport-time,
+  .transport-meta-row .value,
+  .transport-note {
+    overflow-wrap: anywhere;
+  }
+  .transport-note {
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .stay-top {
     align-items: flex-start;
