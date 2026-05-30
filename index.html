@@ -87,7 +87,7 @@ body::before {
 }
 .topnav-track {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 6px;
   align-items: center;
 }
@@ -132,6 +132,84 @@ body::before {
   color: var(--muted);
   margin: 0 4px 22px;
   font-style: italic;
+}
+.learn-list {
+  display: grid;
+  gap: 12px;
+}
+.learn-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.learn-card summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.learn-card summary::-webkit-details-marker {
+  display: none;
+}
+.learn-card summary::after {
+  content: '+';
+  flex: 0 0 auto;
+  color: var(--terracotta);
+  font-weight: 800;
+}
+.learn-card[open] summary::after {
+  content: '-';
+}
+.learn-title {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.learn-title strong {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 550;
+  color: var(--ink);
+}
+.learn-title span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.learn-body {
+  border-top: 1px solid var(--line);
+  padding: 14px 16px 16px;
+  display: grid;
+  gap: 12px;
+}
+.learn-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.learn-note {
+  display: grid;
+  gap: 6px;
+}
+.learn-note h4 {
+  font-size: 13px;
+  color: var(--terracotta-dark);
+  letter-spacing: 0.02em;
+}
+.learn-note p,
+.learn-note li {
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.learn-note ul {
+  margin-left: 18px;
+  display: grid;
+  gap: 4px;
 }
 .home-hero {
   padding: 4px 2px 18px;
@@ -2357,6 +2435,7 @@ body::before {
     <button class="topnav-link" data-panel="panel-trip">Guide</button>
     <button class="topnav-link" data-panel="panel-stays">Stay</button>
     <button class="topnav-link" data-panel="panel-flights">Transportation</button>
+    <button class="topnav-link" data-panel="panel-notes">学习笔记</button>
     <button class="topnav-link" data-panel="panel-tools">Tool</button>
   </div>
 </nav>
@@ -3713,6 +3792,208 @@ body::before {
 </section>
 
 <!-- =================================================== -->
+<!-- =============== PANEL: LEARNING NOTES ============= -->
+<!-- =================================================== -->
+<section class="panel" id="panel-notes">
+  <h2 class="panel-title">学习笔记</h2>
+  <p class="panel-lead">世界史、欧洲史、艺术史、建筑风格和旅行前置知识。</p>
+
+  <div class="learn-list">
+    <details class="learn-card" open>
+      <summary>
+        <span class="learn-title">
+          <strong>一、世界史时间轴</strong>
+          <span>World History Timeline</span>
+        </span>
+      </summary>
+      <div class="learn-body">
+        <div class="learn-actions">
+          <a class="link-btn" href="https://drive.google.com/file/d/1vzm1EO1d9WWZTKWzPdxQPxGM1BaQvZpr/view?usp=drive_link" target="_blank">打开笔记</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="learn-card" open>
+      <summary>
+        <span class="learn-title">
+          <strong>二、欧洲建筑风格</strong>
+          <span>Classical / Romanesque / Gothic / Renaissance / Baroque / Rococo / Neoclassical / Art Nouveau / Modernism</span>
+        </span>
+      </summary>
+      <div class="learn-body">
+        <div class="learn-actions">
+          <a class="link-btn" href="https://docs.google.com/document/d/1TawmRaGRPfTs9Xux_SmtdDgSqmpcxQX0bJC269ZuOMk/edit?usp=sharing" target="_blank">打开文档</a>
+        </div>
+        <div class="learn-note">
+          <h4>古典风格 Classical</h4>
+          <p>特征：罗马柱 marble pillar（学名：多立克柱 Doric Order）。</p>
+          <ul>
+            <li>古希腊：柱子顶三角形；原版只剩雅典卫城帕特农神庙。</li>
+            <li>复刻常用于博物馆、法院、议会、银行等庄重场所，例如大英博物馆、美国最高法院、奥地利国会大厦、美国第二银行。</li>
+            <li>古罗马：柱子顶弧形（学名：拱券）。单个出现是凯旋门，重复并排出现是塞哥维亚输水道，围成一圈是罗马斗兽场，原地转 360 度是万神殿的穹顶。</li>
+            <li>只有出现在遗迹中才是原版古典风，其他都是新古典主义 Neoclassical。</li>
+          </ul>
+        </div>
+        <div class="learn-note">
+          <h4>罗曼式 Romanesque</h4>
+          <p>特征：厚墙 + 拱券小窗。城堡也是厚墙 + 小窗，容易混淆。</p>
+          <p>中世纪时，修道院 Abbey 是知识和技术汇集的地方。修道士从书中学习古代建筑技艺，但学艺不精和条件不允许，所以罗曼式建筑整体看起来像城堡：厚墙、小窗、塔楼，可以从小窗上的迷你拱券看出区别。修道士造不出罗马柱，所以常见罗曼式建筑会有一节一节的墙壁和柱子；有些内部罗马柱是从古罗马遗迹动迁而来，所以花纹不统一。</p>
+        </div>
+        <div class="learn-note">
+          <h4>哥特式 Gothic</h4>
+          <p>特征：尖顶 + 彩窗 + 安全套形状的窗框。</p>
+        </div>
+        <div class="learn-note">
+          <h4>文艺复兴风格 Renaissance</h4>
+          <p>特征：什么都要来双份，柱子一半埋在墙里。人们开智后，造房子开始炫技，窗户可罗马、可希腊、可混搭。</p>
+          <p>代表作：维琴察圆厅别墅。正面和侧面有古希腊柱廊，屋顶是古罗马穹顶，窗户和墙是罗曼式，外围装饰了很多哥特式常见的人物雕塑。</p>
+        </div>
+        <div class="learn-note">
+          <h4>巴洛克 Baroque / 洛可可 Rococo</h4>
+          <p>巴洛克特征：走进去眼花缭乱，关键词是过度装饰。</p>
+          <p>洛可可特征：颜色比巴洛克更骚（骚粉、骚蓝），由 18 世纪贵妇主导的审美。</p>
+        </div>
+        <div class="learn-note">
+          <h4>新古典 Neoclassical / 新艺术 Art Nouveau / 当代 Modernism</h4>
+          <p>新古典背景：拿破仑崇拜古罗马，想打造一个新的古罗马帝国，于是命工匠仿造古典风格建筑。代表作：古罗马凯旋门到巴黎凯旋门；古希腊帕特农神庙到图书馆、法院、博物馆。</p>
+          <p>新艺术风格特征：扭来扭去。当代风格特征：钢筋水泥落地窗。</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="learn-card">
+      <summary>
+        <span class="learn-title">
+          <strong>三、区分不同的教堂</strong>
+          <span>Chapel / Basilica / Cathedral / Duomo / Abbey / Baptistery / Shrine</span>
+        </span>
+      </summary>
+      <div class="learn-body">
+        <div class="learn-actions">
+          <a class="link-btn" href="https://drive.google.com/file/d/1lZd9YvatcuKLWLdUpt7Q5fq_QlKeDc16/view?usp=drive_link" target="_blank">打开笔记</a>
+        </div>
+        <div class="learn-note">
+          <h4>Chapel 礼拜堂</h4>
+          <ul>
+            <li>必须附属于某个大教堂、学院、医院、贵族宅邸，不能 solo。</li>
+            <li>可以直接盖在教堂内部，也可以和主体分开。</li>
+            <li>用途：做弥撒、做祷告、选取下一任教皇。</li>
+            <li>世界上最著名的 chapel 是 Sistine Chapel 西斯廷礼拜堂，由米开朗基罗设计，是用来投票选举教皇的。</li>
+          </ul>
+        </div>
+        <div class="learn-note">
+          <h4>Basilica 大教堂</h4>
+          <ul>
+            <li>原本是古罗马公共建筑名称：长方形，内部有三条纵向走廊贯穿，常用作法院、会议中心、室内商场，后来专用于教堂。</li>
+            <li>全世界有 1800+ Basilica，但真正的应该只有圣彼得、圣保罗、圣母圣殿、圣拉特朗，其他应该都叫 minor Basilica。</li>
+            <li>最著名的是 St. Peter's Basilica 圣彼得大教堂。</li>
+          </ul>
+        </div>
+        <div class="learn-note">
+          <h4>Cathedral / Duomo / Abbey / Baptistery / Shrine</h4>
+          <ul>
+            <li>Cathedral 大教堂 / 主教座堂：词源意为椅子、宝座，是放主教宝座的堂。公元 4 世纪后出现。</li>
+            <li>Duomo：Cathedral 在意大利叫 Duomo，Chapel 在意大利叫 Cappella。一个城市通常只有一个 Cathedral / Duomo，如果有两座，说明有两个不同教派。</li>
+            <li>Abbey 修道院：修士修道、自给自足的地方，会研究、耕种、酿酒、烘焙，通常还有招待所和医院。</li>
+            <li>Baptistery 洗礼堂：新教徒或新生儿接受洗礼的地方，一般是八角形，据说是因为一周有七天，接受洗礼后开通隐藏的第八天。</li>
+            <li>Shrine 神庙：规格无标准，随便一个地方供奉神像就可以是 Shrine。</li>
+          </ul>
+        </div>
+        <div class="learn-note">
+          <h4>名称可叠加 / 外观看风格</h4>
+          <p>罗马圣若望拉特朗：罗马主教座堂 Cathedral；罗马主教是教皇，所以是 Basilica；四座 Basilica 的总舵是 Archbasilica（世界唯一）。</p>
+          <p>外观无法区分教堂类型，但可以区分风格：哥特式屋顶尖尖；罗曼式厚墙小窗；巴洛克椭圆弧线；拜占庭方头圆帽。拜占庭风格 + 四根尖塔就不是教堂，而是清真寺。</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="learn-card">
+      <summary>
+        <span class="learn-title">
+          <strong>四、文艺复兴 & 启蒙运动</strong>
+          <span>Renaissance / Reformation / Scientific Revolution / Enlightenment</span>
+        </span>
+      </summary>
+      <div class="learn-body">
+        <div class="learn-actions">
+          <a class="link-btn" href="https://drive.google.com/file/d/1FAPP6dKrwOXQ9IVLDnSSqoQWWSfeTRZo/view?usp=drive_link" target="_blank">打开笔记</a>
+        </div>
+        <div class="learn-note">
+          <h4>基督教的禁锢</h4>
+          <p>公元 10 世纪之后，基督教教皇权力到达顶峰，教皇英诺森三世自称万皇之皇。教皇直接干预各国内部事务，建立宗教裁判所，通过火刑等方式处死异教徒，发起多次十字军东征，并焚烧古代经典书籍。</p>
+        </div>
+        <div class="learn-note">
+          <h4>文艺复兴产生的背景和原因</h4>
+          <ul>
+            <li>资本主义萌芽的出现与发展：大航海时期意大利为商路终点，比较富裕；佛罗伦萨较早发展金融业，新兴阶级对文化产生自己的需求。</li>
+            <li>古罗马、古希腊文化沉淀深厚：文学艺术回流。</li>
+            <li>新兴贵族、资产阶级支持：美第奇家族曾支持达芬奇、米开朗基罗、拉斐尔、布鲁内莱斯等艺术家。</li>
+            <li>具有新思想的文人学者汇集。</li>
+          </ul>
+        </div>
+        <div class="learn-note">
+          <h4>人文主义与文艺复兴人物</h4>
+          <p>人文主义强调以人为中心，而不是以神为中心；肯定人的价值和尊严，反对禁欲主义，抨击教会腐败，崇尚理性，追求现世幸福生活。</p>
+          <ul>
+            <li>文学三杰：但丁、彼得拉克、薄伽丘。</li>
+            <li>美术三杰：达芬奇、米开朗基罗、拉斐尔。</li>
+            <li>向外传播：莎士比亚，代表作《哈姆雷特》《李尔王》。文艺复兴是城市的，不是农村的。</li>
+          </ul>
+        </div>
+        <div class="learn-note">
+          <h4>宗教改革</h4>
+          <p>1517 年，为维修罗马圣彼得教堂，教皇决定在欧洲兜售“赎罪券”。维登堡大学神学教授马丁·路德撰写《九十五条论纲》，痛斥教廷推销赎罪券，拉开宗教改革序幕。</p>
+          <ul>
+            <li>马丁路德认为人的灵魂获救靠自己，上帝面前人人平等。</li>
+            <li>主张建立独立的民族教会和廉俭教会，用民族语言进行宗教活动。</li>
+            <li>德国宗教改革确定“教随国定”原则，形成路德派新教。</li>
+            <li>新教三个原始宗派：路德宗、加尔文宗、安立甘宗。</li>
+          </ul>
+        </div>
+        <div class="learn-note">
+          <h4>科学革命与启蒙运动</h4>
+          <p>科学革命最早发生在与地理学和航海密切相关的天文学领域。哥白尼提出日心说；伽利略改进望远镜并通过观测证实哥白尼学说；牛顿发现万有引力，确立力学体系，奠定近代物理学基础，并发展微积分。</p>
+          <p>启蒙运动精神内核是理性。17 世纪先在英国出现，18 世纪在法国达到巅峰，并从法国向外扩散。代表人物：伏尔泰、孟德斯鸠、卢梭、亚当斯密、康德。</p>
+          <p>意义：进一步解放思想，为资本主义制度建立作理论准备和舆论宣传；推动美国独立战争和法国大革命；成为殖民地半殖民地人民争取民族独立的精神武器。</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="learn-card">
+      <summary>
+        <span class="learn-title">
+          <strong>五、十字军东征</strong>
+          <span>Crusades</span>
+        </span>
+      </summary>
+      <div class="learn-body">
+        <div class="learn-actions">
+          <a class="link-btn" href="https://drive.google.com/file/d/1jF9R0UDVGOlJK0nbpwTC3-mYpYO6nlhb/view?usp=drive_link" target="_blank">打开笔记</a>
+        </div>
+        <div class="learn-note">
+          <h4>背景</h4>
+          <p>宗教原因：公元 1 世纪罗马帝国控制地中海沿岸，帝国东部产生基督教。公元 4 世纪基督教成为罗马国教；罗马分裂后，西罗马信天主教，东罗马（拜占庭帝国）信东正教。公元 7 世纪穆罕默德在阿拉伯半岛创立伊斯兰教，之后从拜占庭帝国手中夺取耶路撒冷。耶路撒冷既是基督教中耶稣受难之地，也是伊斯兰教中穆罕默德登临天界的圣地。1000 年后，伊斯兰教在耶路撒冷推行极端排外政策，拆毁基督教堂，禁止基督徒朝圣，引起欧洲信徒不满。</p>
+          <p>拜占庭求援：塞尔柱突厥人从东方崛起，击败拜占庭军队，兵临君士坦丁堡。拜占庭皇帝向罗马教皇乌尔班二世求助。教皇也想趁机抵御异教徒、收复圣城、压制世俗王权，扩大权威。</p>
+        </div>
+        <div class="learn-note">
+          <h4>八次东征</h4>
+          <ul>
+            <li>第一次 1096-1099：骑士十字军成功占领耶路撒冷，屠城清洗异教徒，建立 4 个十字军国家，是八次东征中最成功的一次。</li>
+            <li>第二次 1147-1149：1144 年穆斯林攻陷十字军国家之一，教皇再次号召东征。法国国王路易七世和神圣罗马帝国国王康拉德三世领军，最终失败。</li>
+            <li>第三次 1189-1192：1187 年萨拉丁收复耶路撒冷。红胡子、腓力二世、狮心王参战，最终西欧未收复耶路撒冷，但基督徒被允许和平进入耶路撒冷，并保住部分沿海据点。</li>
+            <li>第四次 1202-1204：原目标是埃及，但因无力支付威尼斯船费，被怂恿攻打扎拉城。后来又攻陷并洗劫君士坦丁堡，建立拉丁帝国，持续半世纪。</li>
+            <li>第五次 1217-1221：目标转为经由埃及进攻，但穆斯林利用尼罗河水势和地形截断退路，十字军被击溃。</li>
+            <li>第六次 1228-1229：神圣罗马帝国国王腓特烈二世通过外交谈判收回耶路撒冷，签署《雅法合约》，约定停战十年。</li>
+            <li>第七次 1248-1254：1244 年穆斯林再次占领耶路撒冷，法国国王路易九世发动东征，目标仍是埃及。十字军水土不服、遭遇瘟疫和洪水，路易九世被俘，后由法国高价赎回。</li>
+            <li>第八次：路易九世再次发动东征，目标为北非突尼斯，但登陆后爆发传染病，路易九世病亡。此后十字军在东方领土陆续沦陷，1291 年最后陆上据点阿卡城被攻陷。</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- =================================================== -->
 <!-- =============== PANEL: TOOLS ====================== -->
 <!-- =================================================== -->
 <section class="panel" id="panel-tools">
@@ -3805,9 +4086,9 @@ body::before {
 </section>
 
 <!-- =================================================== -->
-<!-- =============== PANEL: NOTES ====================== -->
+<!-- =============== PANEL: COUNTRY NOTES ============= -->
 <!-- =================================================== -->
-<section class="panel" id="panel-notes">
+<section class="panel" id="panel-country-notes">
   <h2 class="panel-title">Notes <span class="num">·</span> <em>笔记 · 各国须知</em></h2>
   <p class="panel-lead">Practical knowledge by country. 想加你自己学的笔记请告诉我.</p>
 
