@@ -211,6 +211,15 @@ body::before {
   display: grid;
   gap: 4px;
 }
+.learn-image {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  box-shadow: 0 6px 18px rgba(28,26,21,0.08);
+}
 .home-hero {
   padding: 4px 2px 18px;
 }
@@ -2431,12 +2440,12 @@ body::before {
 <!-- ===================== TOP NAV ===================== -->
 <nav class="topnav" aria-label="Primary navigation">
   <div class="topnav-track">
-    <button class="topnav-link active" data-panel="panel-home">Home</button>
-    <button class="topnav-link" data-panel="panel-trip">Guide</button>
-    <button class="topnav-link" data-panel="panel-stays">Stay</button>
-    <button class="topnav-link" data-panel="panel-flights">Transportation</button>
+    <button class="topnav-link active" data-panel="panel-home">主页</button>
+    <button class="topnav-link" data-panel="panel-trip">计划</button>
+    <button class="topnav-link" data-panel="panel-stays">住宿</button>
+    <button class="topnav-link" data-panel="panel-flights">交通</button>
     <button class="topnav-link" data-panel="panel-notes">学习笔记</button>
-    <button class="topnav-link" data-panel="panel-tools">Tool</button>
+    <button class="topnav-link" data-panel="panel-tools">工具</button>
   </div>
 </nav>
 
@@ -2445,7 +2454,7 @@ body::before {
 <!-- =================================================== -->
 <section class="panel active" id="panel-home">
   <div class="home-hero">
-    <h2 class="home-title">2026夏 <span class="dot">·</span> 欧洲旅行计划</h2>
+    <h2 class="home-title">2026夏 <span class="dot">·</span> 欧洲旅行手册</h2>
     <div class="home-summary">
       <div class="home-stat">
         <div class="label">Dates</div>
@@ -2473,10 +2482,8 @@ body::before {
       <label><input type="checkbox"> Amy巴塞罗那 → 伦敦机票</label>
       <label><input type="checkbox"> 塞纳河游船</label>
       <label><input type="checkbox"> 佛罗伦萨 ⇄ 比萨火车票</label>
-      <label><input type="checkbox"> 佛罗伦萨 → 罗马火车票</label>
       <label><input type="checkbox"> 斗兽场门票</label>
       <label><input type="checkbox"> 万神殿门票</label>
-      <label><input type="checkbox"> 圣依纳爵堂门票</label>
       <label><input type="checkbox"> 博尔盖塞美术馆门票</label>
     </div>
   </div>
@@ -2640,10 +2647,8 @@ body::before {
       <label><input type="checkbox"> Amy巴塞罗那 → 伦敦机票</label>
       <label><input type="checkbox"> 塞纳河游船</label>
       <label><input type="checkbox"> 佛罗伦萨 ⇄ 比萨火车票</label>
-      <label><input type="checkbox"> 佛罗伦萨 → 罗马火车票</label>
       <label><input type="checkbox"> 斗兽场门票</label>
       <label><input type="checkbox"> 万神殿门票</label>
-      <label><input type="checkbox"> 圣依纳爵堂门票</label>
       <label><input type="checkbox"> 博尔盖塞美术馆门票</label>
     </div>
   </div>
@@ -3103,7 +3108,7 @@ body::before {
         <ul class="flow-list">
           <li><span class="flow-title">酒店寄存行李</span></li>
           <li><span class="flow-title">上午参观大英博物馆（The British Museum）</span>
-          <span class="flow-detail">开放时间：10:00-17:00。<br>门票：常设展免费，网上按时间预约；特许展提前在官网购票。<br>定位：正门日常排队30分钟左右；后门 Montague Place，通常不排队。</span></li>
+          <span class="flow-detail">开放时间：10:00-17:00。<br>门票：常设展免费，网上按时间预约；特许展提前在官网购票。<br>定位：正门日常排队30分钟左右；后门 Montague Place，通常不排队。<br><a class="link-btn" href="https://v.douyin.com/fE63LQGesMc/" target="_blank">视频讲解</a></span></li>
           <li data-flight-link="london-paris"><span class="flow-title">British Airways BA0312 · LHR T5 → CDG T2C</span>
           <span class="flow-note">18:20 起飞 · 20:35 抵达 · 时差 +1h</span></li>
         </ul>
@@ -3175,6 +3180,8 @@ body::before {
           <span class="anchor-title"><span class="seg-time">18:00</span>卢浮宫 · Louvre</span>
           <a class="link-btn" href="https://drive.google.com/file/d/1oG_DEyml-82MaoL0wHSiZGjGhzFJHp8X/view?usp=drive_link" target="_blank">Ticket</a>
           <a class="link-btn" href="https://www.google.com/maps/search/?api=1&query=Louvre%20Museum%20Paris" target="_blank">Open in Maps</a>
+          <a class="link-btn" href="https://v.douyin.com/erDR3znHbQE/" target="_blank">视频讲解 1</a>
+          <a class="link-btn" href="https://v.douyin.com/A18FOE-anoQ/" target="_blank">视频讲解 2</a>
           <details class="guide-details">
             <summary>入口建议</summary>
             <div class="guide-media-grid">
@@ -3237,6 +3244,7 @@ body::before {
           <span class="anchor-title">奥赛博物馆晚场 · Musée d'Orsay</span>
           <span class="anchor-note">18:30 入场 · 梵高 / 莫奈 / 雷诺阿 / 德加</span>
           <a class="link-btn" href="https://drive.google.com/file/d/1lW8bGNTlgcVu74cCMze6YE573uqIsou7/view?usp=drive_link" target="_blank">Confirmation</a>
+          <a class="link-btn" href="https://v.douyin.com/dxH0W4oyE6g/" target="_blank">视频讲解</a>
         </div>
           <div class="anchor-item transit">
           <span class="anchor-title">塞纳河游船待定 · Seine Cruise Ticket</span>
@@ -3317,9 +3325,9 @@ body::before {
         <div class="anchor-list">
           <div class="anchor-item transit">
           <span class="anchor-title">乌菲兹美术馆 · Galleria degli Uffizi</span>
-          <span class="anchor-note">13:00 入场 · 波提切利 / 达芬奇 / 卡拉瓦乔</span>
           <a class="link-btn" href="https://drive.google.com/file/d/1G_wF90xJ4-EqZ9ntQ-9CPbaec3DdHCRe/view?usp=sharing" target="_blank">Ticket</a>
-          <a class="link-btn" href="https://docs.google.com/document/d/1Khg8L7lMY11Z_SEIRQWHv1eBcXuErEwJSXa37GfgGx8/edit?usp=sharing" target="_blank">看点</a>
+          <a class="link-btn" href="https://docs.google.com/document/d/1Khg8L7lMY11Z_SEIRQWHv1eBcXuErEwJSXa37GfgGx8/edit?usp=sharing" target="_blank">文字讲解</a>
+          <a class="link-btn" href="https://v.douyin.com/WFQEM-YaK3o/" target="_blank">视频讲解</a>
           <a class="link-btn" href="http://xhslink.com/n/1wtgUDrqlPk" target="_blank">参考路线</a>
         </div>
         </div>
@@ -3337,7 +3345,7 @@ body::before {
           <li><span class="flow-title">老桥 · Ponte Vecchio</span>
           <span class="flow-detail">周杰伦同款拍照地。</span></li>
           <li><span class="flow-title">碧提宫 · Palazzo Pitti</span>
-          <span class="flow-detail">美第奇家族的宫殿。<br>套票22欧（含博物馆和花园）。</span></li>
+          <span class="flow-detail">美第奇家族的宫殿。<br>套票22欧（含博物馆和花园）。<br><a class="link-btn" href="https://v.douyin.com/IhCAaxjWSro/" target="_blank">视频讲解</a></span></li>
           <li><span class="flow-title">米开朗基罗广场 · Piazzale Michelangelo</span>
           <span class="flow-detail">绝美拍照位置。 <a class="link-btn" href="http://xhslink.com/n/93j5RRf89J3" target="_blank">查看</a></span></li>
         </ul>
@@ -3407,7 +3415,6 @@ body::before {
           <span class="flow-note">16:43-18:19 · 车厢6 · 座位45、46</span></li>
           <li data-stay-link="rome-stay"><span class="flow-title">Adriana Boutique Guest House · 入住</span>
           <span class="flow-note">Jun 22 → Jun 26 · 4 晚</span></li>
-          <li class="food"><span class="flow-title">酒店附近轻松晚餐 · Easy dinner nearby</span></li>
         </ul>
       </section>
     </div>
@@ -3430,14 +3437,21 @@ body::before {
         <span class="section-kicker">Today's Anchor</span>
         <div class="anchor-list">
           <div class="anchor-item tbd">
-          <span class="anchor-title">斗兽场预订待定 · Colosseum reservation</span>
-          <span class="anchor-note">建议 timed entry</span>
+          <span class="anchor-title">斗兽场 · Colosseum</span>
+          <span class="anchor-note">提前一周跟代订确认</span>
           <span class="anchor-extra">从斗兽场出来，在官方票上序号 7 的位置进入帕拉丁山侧门。<br>Google Maps 搜 Portale del Vignola。<br>这样走不用走回头路，也不用爬楼梯。<br>下来就是凯旋门 → 古罗马广场 → 后门 6 出口。<br>后门 6 出口出去就是真理之口。<br>古罗马广场 Foro Romano：古罗马人民当时生活的地方，遗址。<br>真理之口：位于 Basilica di Santa Maria in Cosmedin 希腊圣母堂。<br>圣瓦伦汀死于公元 273 年 2 月 14 日，情人节也是为了纪念他；这位圣人的头骨存放在教堂中。</span>
         </div>
           <div class="anchor-item tbd">
-          <span class="anchor-title">万神庙预订待定 · Pantheon reservation</span>
-          <span class="anchor-note">现在一般需要门票, 出发前查 museiitaliani.it</span>
-          <span class="anchor-extra">建筑背景：<span class="soft-list"><span>建于公元前 27 年，后由哈德良皇帝在公元 118-125 年重建</span><span>原意是“万神庙”，供奉古罗马诸神</span><span>公元 609 年改为基督教堂：圣母与诸殉道者教堂</span><span>圆顶直径 43.3 米，直到 15 世纪才被佛罗伦萨圣母百花大教堂超越</span></span>亮点：<span class="soft-list"><span>圆顶穹顶 Dome</span><span>世界上最大的无钢筋混凝土穹顶</span><span>中央的“天窗”叫 Oculus，直径 9 米，是唯一光源</span><span>下雨时雨水会直接落进来，但地面设计了隐形排水孔</span><span>大理石地板是原始罗马时期的地面，圆形和方形交错的几何图案象征“天圆地方”</span><span>中央供奉圣母与圣婴，是其从异教神庙转变为基督教堂的象征</span><span>拉斐尔安葬于此，可以找写有 Raphael 的墓碑</span></span>如果没有提前买票，用现金，5 欧/人，在门口最左边的队伍进场。</span>
+          <span class="anchor-title">万神庙 · Pantheon</span>
+          <span class="anchor-note">如果没有提前买票，用现金，5 欧/人，在门口最左边的队伍进场。</span>
+          <details class="guide-details">
+            <summary>建筑背景</summary>
+            <span class="anchor-extra"><span class="soft-list"><span>建于公元前 27 年，后由哈德良皇帝在公元 118-125 年重建</span><span>原意是“万神庙”，供奉古罗马诸神</span><span>公元 609 年改为基督教堂：圣母与诸殉道者教堂</span><span>圆顶直径 43.3 米，直到 15 世纪才被佛罗伦萨圣母百花大教堂超越</span></span></span>
+          </details>
+          <details class="guide-details">
+            <summary>亮点</summary>
+            <span class="anchor-extra"><span class="soft-list"><span>圆顶穹顶 Dome</span><span>世界上最大的无钢筋混凝土穹顶</span><span>中央的“天窗”叫 Oculus，直径 9 米，是唯一光源</span><span>下雨时雨水会直接落进来，但地面设计了隐形排水孔</span><span>大理石地板是原始罗马时期的地面，圆形和方形交错的几何图案象征“天圆地方”</span><span>中央供奉圣母与圣婴，是其从异教神庙转变为基督教堂的象征</span><span>拉斐尔安葬于此，可以找写有 Raphael 的墓碑</span></span></span>
+          </details>
         </div>
         </div>
       </section>
@@ -3445,6 +3459,8 @@ body::before {
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
           <li><span class="flow-title">古罗马广场 + 帕拉蒂诺山 · Foro Romano + Palatino</span></li>
+          <li><span class="flow-title">庞贝古城 · Pompeii</span>
+          <span class="flow-detail"><a class="link-btn" href="https://v.douyin.com/CBpzAsIGfYk/" target="_blank">视频讲解</a></span></li>
           <li><span class="flow-title">威尼斯广场 · Piazza Venezia</span></li>
           <li><span class="flow-title">圣依纳爵堂 · Sant'Ignazio</span>
           <span class="flow-note">错视天顶画 · 镜面看天顶</span>
@@ -3477,7 +3493,9 @@ body::before {
           <span class="anchor-title">梵蒂冈博物馆导览 · Vatican Museums Guided Tour</span>
           <span class="anchor-note">08:00 入场 + 导览 · 含西斯廷礼拜堂 · 肩膝需遮住</span>
           <a class="link-btn" href="https://drive.google.com/file/d/1PZqLUzunOBKa7eRjsyN_bnZURumzFFdt/view?usp=drive_link" target="_blank">Confirmation</a>
-          <a class="link-btn" href="https://docs.google.com/document/d/1f_-hZZtFbBzjv_ui0qHoLII7tr-2bL6WvYZ9_A6EcdI/edit?usp=sharing" target="_blank">看点</a>
+          <a class="link-btn" href="https://docs.google.com/document/d/1f_-hZZtFbBzjv_ui0qHoLII7tr-2bL6WvYZ9_A6EcdI/edit?usp=sharing" target="_blank">文字讲解</a>
+          <a class="link-btn" href="https://v.douyin.com/uN3iizmoi-g/" target="_blank">视频讲解</a>
+          <a class="link-btn" href="https://v.douyin.com/eI79tN1G6J4/" target="_blank">视频讲解</a>
         </div>
         </div>
       </section>
@@ -3487,7 +3505,7 @@ body::before {
           <li><span class="flow-title">西斯廷礼拜堂 · Sistine Chapel</span></li>
           <li><span class="flow-title">圣彼得大教堂 · St. Peter's Basilica</span>
           <span class="flow-note">进入免费, 安检长队; 登穹顶另收费</span>
-          <span class="flow-detail">世界上最大的教堂。<br>看点：<a class="link-btn" href="http://xhslink.com/n/66JDNgp0WCO" target="_blank">查看</a></span></li>
+          <span class="flow-detail">世界上最大的教堂。<br>看点：<a class="link-btn" href="http://xhslink.com/n/66JDNgp0WCO" target="_blank">查看</a><br><a class="link-btn" href="https://v.douyin.com/06BvdS239w8/" target="_blank">视频讲解</a></span></li>
         </ul>
       </section>
     </div>
@@ -3514,6 +3532,7 @@ body::before {
           <span class="anchor-title">博尔盖塞美术馆 · Galleria Borghese</span>
           <span class="anchor-note">严格分时段 · 每场 2h · 贝尼尼 + 卡拉瓦乔</span>
           <a class="link-btn" href="https://www.tosc.it/artist/galleria-borghese/galleria-borghese-2253937/" target="_blank">Ticket</a>
+          <a class="link-btn" href="https://v.douyin.com/8Zj6Q5v8uI0/" target="_blank">视频讲解</a>
         </div>
         </div>
       </section>
@@ -3683,7 +3702,7 @@ body::before {
     <div class="flight-card-title">佛罗伦萨 → 罗马</div>
     <div class="flight-card-sub">Italo 火车 · 已预订</div>
     <article class="boarding-pass">
-      <div class="bp-main"><div class="bp-col bp-left"><span class="label">Train</span><div class="bp-flight-no">8143</div><div class="bp-carrier">Italo</div><div class="bp-date">Jun 22</div></div><div class="bp-col bp-route"><div><span class="label">From</span><div class="bp-airport">FIR</div><div class="bp-terminal">Firenze S.M.N.</div><div class="bp-time">16:43</div></div><div class="bp-arrow"><span class="bp-duration">1h36m</span>→</div><div><span class="label">To</span><div class="bp-airport">ROM</div><div class="bp-terminal">Roma Termini</div><div class="bp-time">18:19</div></div></div><div class="bp-col bp-right"><div class="bp-info"><span class="label">Passenger</span><div class="value">Amy + Eric</div></div><div class="bp-info"><span class="label">Coach</span><div class="value">6</div></div><div class="bp-info"><span class="label">Seat</span><div class="value">45, 46</div></div><div class="bp-info"><span class="label">Confirmation</span><div class="value"><a class="link-btn" href="https://drive.google.com/file/d/1QfMzB1_NyXd2L4qxnNSaVIme94yIH1Ds/view?usp=sharing" target="_blank">火车票</a></div></div></div></div>
+      <div class="bp-main"><div class="bp-col bp-left"><span class="label">Train</span><div class="bp-flight-no">8143</div><div class="bp-carrier">Italo</div><div class="bp-date">Jun 22</div></div><div class="bp-col bp-route"><div><span class="label">From</span><div class="bp-airport">FIR</div><div class="bp-terminal">Firenze S.M.N.</div><div class="bp-time">16:43</div></div><div class="bp-arrow"><span class="bp-duration">1h36m</span>→</div><div><span class="label">To</span><div class="bp-airport">ROM</div><div class="bp-terminal">Roma Termini</div><div class="bp-time">18:19</div></div></div><div class="bp-col bp-right"><div class="bp-info"><span class="label">Passenger</span><div class="value">Amy + Eric</div></div><div class="bp-info"><span class="label">车厢</span><div class="value">6</div></div><div class="bp-info"><span class="label">Seat</span><div class="value">45, 46</div></div><div class="bp-info"><span class="label">Confirmation</span><div class="value"><a class="link-btn" href="https://drive.google.com/file/d/1QfMzB1_NyXd2L4qxnNSaVIme94yIH1Ds/view?usp=sharing" target="_blank">火车票</a></div></div></div></div>
     </article>
   </div>
 
@@ -3799,7 +3818,7 @@ body::before {
   <p class="panel-lead">世界史、欧洲史、艺术史、建筑风格和旅行前置知识。</p>
 
   <div class="learn-list">
-    <details class="learn-card" open>
+    <details class="learn-card">
       <summary>
         <span class="learn-title">
           <strong>一、世界史时间轴</strong>
@@ -3813,7 +3832,7 @@ body::before {
       </div>
     </details>
 
-    <details class="learn-card" open>
+    <details class="learn-card">
       <summary>
         <span class="learn-title">
           <strong>二、欧洲建筑风格</strong>
@@ -3823,6 +3842,7 @@ body::before {
       <div class="learn-body">
         <div class="learn-actions">
           <a class="link-btn" href="https://docs.google.com/document/d/1TawmRaGRPfTs9Xux_SmtdDgSqmpcxQX0bJC269ZuOMk/edit?usp=sharing" target="_blank">打开文档</a>
+          <a class="link-btn" href="https://v.douyin.com/JdjN8xnNAq4/" target="_blank">视频讲解</a>
         </div>
         <div class="learn-note">
           <h4>古典风格 Classical</h4>
@@ -3847,6 +3867,7 @@ body::before {
           <h4>文艺复兴风格 Renaissance</h4>
           <p>特征：什么都要来双份，柱子一半埋在墙里。人们开智后，造房子开始炫技，窗户可罗马、可希腊、可混搭。</p>
           <p>代表作：维琴察圆厅别墅。正面和侧面有古希腊柱廊，屋顶是古罗马穹顶，窗户和墙是罗曼式，外围装饰了很多哥特式常见的人物雕塑。</p>
+          <img class="learn-image" src="assets/notes/villa-rotonda.png" alt="维琴察圆厅别墅照片">
         </div>
         <div class="learn-note">
           <h4>巴洛克 Baroque / 洛可可 Rococo</h4>
@@ -3871,6 +3892,7 @@ body::before {
       <div class="learn-body">
         <div class="learn-actions">
           <a class="link-btn" href="https://drive.google.com/file/d/1lZd9YvatcuKLWLdUpt7Q5fq_QlKeDc16/view?usp=drive_link" target="_blank">打开笔记</a>
+          <a class="link-btn" href="https://v.douyin.com/716lLm7j5UE/" target="_blank">视频讲解</a>
         </div>
         <div class="learn-note">
           <h4>Chapel 礼拜堂</h4>
@@ -3904,6 +3926,7 @@ body::before {
           <p>罗马圣若望拉特朗：罗马主教座堂 Cathedral；罗马主教是教皇，所以是 Basilica；四座 Basilica 的总舵是 Archbasilica（世界唯一）。</p>
           <p>外观无法区分教堂类型，但可以区分风格：哥特式屋顶尖尖；罗曼式厚墙小窗；巴洛克椭圆弧线；拜占庭方头圆帽。拜占庭风格 + 四根尖塔就不是教堂，而是清真寺。</p>
         </div>
+        <img class="learn-image" src="assets/notes/church-styles.png" alt="哥特式、罗曼式、巴洛克、拜占庭教堂风格对比图">
       </div>
     </details>
 
@@ -3917,6 +3940,7 @@ body::before {
       <div class="learn-body">
         <div class="learn-actions">
           <a class="link-btn" href="https://drive.google.com/file/d/1FAPP6dKrwOXQ9IVLDnSSqoQWWSfeTRZo/view?usp=drive_link" target="_blank">打开笔记</a>
+          <a class="link-btn" href="https://v.douyin.com/0iNQDbXx5t8/" target="_blank">视频讲解</a>
         </div>
         <div class="learn-note">
           <h4>基督教的禁锢</h4>
@@ -3987,6 +4011,20 @@ body::before {
             <li>第七次 1248-1254：1244 年穆斯林再次占领耶路撒冷，法国国王路易九世发动东征，目标仍是埃及。十字军水土不服、遭遇瘟疫和洪水，路易九世被俘，后由法国高价赎回。</li>
             <li>第八次：路易九世再次发动东征，目标为北非突尼斯，但登陆后爆发传染病，路易九世病亡。此后十字军在东方领土陆续沦陷，1291 年最后陆上据点阿卡城被攻陷。</li>
           </ul>
+        </div>
+      </div>
+    </details>
+
+    <details class="learn-card">
+      <summary>
+        <span class="learn-title">
+          <strong>六、光荣革命、独立战争、法国大革命</strong>
+          <span>Glorious Revolution / American Revolution / French Revolution</span>
+        </span>
+      </summary>
+      <div class="learn-body">
+        <div class="learn-actions">
+          <a class="link-btn" href="https://v.douyin.com/o6NHjSFuEOo/" target="_blank">视频讲解</a>
         </div>
       </div>
     </details>
@@ -4415,7 +4453,13 @@ const guideStayByDay = {
   'day-22': 'rome-stay'
 };
 const guideBackupByDay = {
-  'day-10': ['维多利亚和阿尔伯特博物馆 · Victoria and Albert Museum (V&A)'],
+  'day-10': [{
+    title: '维多利亚和阿尔伯特博物馆 · Victoria and Albert Museum (V&A)',
+    actions: [{ label: '视频讲解', url: 'https://v.douyin.com/BO4FCJGR9zk/' }]
+  }],
+  'day-14': ['塞纳河游船 · Seine River Cruise'],
+  'day-15': ['巴黎歌剧院 · Palais Garnier', '塞纳河游船 · Seine River Cruise'],
+  'day-16': ['巴黎歌剧院 · Palais Garnier', '蒙马特高地 · Montmartre'],
   'day-17': ['学院美术馆 · Accademia'],
   'day-18': ['学院美术馆 · Accademia'],
   'day-21': ["圣天使堡 · Castel Sant'Angelo"]
@@ -4541,6 +4585,7 @@ function getTransportPass(linkId, passIndex) {
       terminal: guideText(pass, '.bp-route > div:last-child .bp-terminal'),
       time: guideText(pass, '.bp-route > div:last-child .bp-time')
     },
+    coach: [...pass.querySelectorAll('.bp-info')].find(x => /Coach|车厢/i.test(guideText(x, '.label')))?.querySelector('.value')?.textContent.trim() || '',
     seat: [...pass.querySelectorAll('.bp-info')].find(x => /Seat/i.test(guideText(x, '.label')))?.querySelector('.value')?.textContent.trim() || 'TBD',
     confirmation: [...pass.querySelectorAll('.bp-info')].find(x => /Confirmation/i.test(guideText(x, '.label')))?.querySelector('.value')?.textContent.trim() || 'TBD'
   };
@@ -4581,6 +4626,7 @@ function buildTransportationSection(dayId) {
           </div>
         </div>
         <div class="transport-meta">
+          ${pass.coach ? `<div class="transport-meta-row"><span class="label">车厢</span><span class="value">${guideEscapeHtml(pass.coach)}</span></div>` : ''}
           <div class="transport-meta-row"><span class="label">Seat</span><span class="value">${guideEscapeHtml(pass.seat)}</span></div>
         </div>
       </div>
@@ -4653,7 +4699,11 @@ function buildBackupSection(dayId) {
   section.innerHTML = `
     <span class="section-kicker">备选行程</span>
     <div class="backup-list">
-      ${items.map(item => `<div class="backup-item">${guideEscapeHtml(item)}</div>`).join('')}
+      ${items.map(item => {
+        const title = typeof item === 'string' ? item : item.title;
+        const actions = typeof item === 'string' ? [] : (item.actions || []);
+        return `<div class="backup-item">${guideEscapeHtml(title)}${actions.map(action => ` <a class="link-btn" href="${guideEscapeHtml(action.url)}" target="_blank">${guideEscapeHtml(action.label)}</a>`).join('')}</div>`;
+      }).join('')}
     </div>
   `;
   return section;
