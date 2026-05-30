@@ -395,8 +395,8 @@ body::before {
 }
 .cal-flight.train,
 .cal-train {
-  color: var(--terracotta);
-  font-weight: 800;
+  color: var(--ink);
+  font-weight: 400;
 }
 .cal-flight.train::before {
   content: '🚄 ' attr(data-flyer);
@@ -605,6 +605,9 @@ body::before {
   .transport-note {
     margin-left: 0;
     margin-right: 0;
+  }
+  .flow-image-link {
+    width: min(100%, 330px);
   }
   .stay-top {
     align-items: flex-start;
@@ -1242,8 +1245,59 @@ body::before {
   color: inherit;
   font-weight: 400;
 }
+.flow-list.new-flow li.food,
+.flow-list.new-flow li.food .flow-title {
+  color: #173d63;
+}
 .flow-list.new-flow .flow-note {
   display: none;
+}
+.flow-detail {
+  display: block;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.65;
+  margin: 7px 0 0 12px;
+  padding-left: 10px;
+  border-left: 1px solid var(--line-2);
+}
+.flow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 0 22px;
+}
+.anchor-extra {
+  display: block;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.65;
+  margin: 8px 0 0 12px;
+  padding-left: 10px;
+  border-left: 1px solid var(--line-2);
+}
+.anchor-extra .soft-list {
+  display: grid;
+  gap: 4px;
+  margin-top: 2px;
+  padding-left: 14px;
+}
+.anchor-extra .soft-list span {
+  display: list-item;
+}
+.flow-image-link {
+  display: block;
+  width: min(100%, 420px);
+  margin: 4px auto 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.flow-image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .stay-card-mini {
   border: 1px solid var(--line);
@@ -2466,7 +2520,7 @@ body::before {
       <div class="cal-date">22</div>
       <div class="cal-city">Florence → Rome</div>
       <div class="cal-hotel" data-stay-link="rome-stay">Adriana Boutique Guest House</div>
-      <div class="cal-train" data-flight-link="florence-rome">Firenze S.M.N. → Roma Termini</div>
+      <div class="cal-train" data-flight-link="florence-rome">Italo 8143<br>Firenze S.M.N. 16:43-18:19 Roma Termini</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-20" tabindex="0" role="button">
       <div class="cal-date">23</div>
@@ -2574,7 +2628,7 @@ body::before {
       </div>
       <div class="day-place">Los Angeles <span class="en">→ London</span></div>
       <div class="day-meta">
-        <span class="who">✈ Amy</span>
+        <span class="who">Amy & 晗晗</span>
         <span>跨夜航班 · Overnight</span>
       </div>
     </div>
@@ -2605,7 +2659,7 @@ body::before {
       </div>
       <div class="day-place">London <span class="en">→ Glasgow</span></div>
       <div class="day-meta">
-        <span class="who">✈ Amy</span>
+        <span class="who">Amy & 晗晗</span>
         <span>上午抵伦敦 · 当日转机苏格兰</span>
       </div>
     </div>
@@ -2635,7 +2689,7 @@ body::before {
       </div>
       <div class="day-place">Glasgow <span class="en">· 格拉斯哥</span></div>
       <div class="day-meta">
-        <span class="who">Amy</span>
+        <span class="who">Amy & 晗晗</span>
         <span>自由活动 · Open day</span>
       </div>
     </div>
@@ -2664,7 +2718,7 @@ body::before {
       </div>
       <div class="day-place">Glasgow <span class="en">· 格拉斯哥</span></div>
       <div class="day-meta">
-        <span class="who">Amy</span>
+        <span class="who">Amy & 晗晗</span>
         <span>自由活动 · Open day</span>
       </div>
     </div>
@@ -2693,7 +2747,7 @@ body::before {
       </div>
       <div class="day-place">Edinburgh <span class="en">· 爱丁堡</span></div>
       <div class="day-meta">
-        <span class="who">Amy</span>
+        <span class="who">Amy & 晗晗</span>
         <span>自由活动 · Open day</span>
       </div>
     </div>
@@ -2731,7 +2785,7 @@ body::before {
       </div>
       <div class="day-place">Scotland <span class="en">→ Barcelona</span></div>
       <div class="day-meta">
-        <span class="who">Amy + 晗晗</span>
+        <span class="who">Amy & 晗晗</span>
         <span>晗晗汇合 · Hanhan joins</span>
       </div>
     </div>
@@ -2764,7 +2818,7 @@ body::before {
       </div>
       <div class="day-place">Barcelona <span class="en">· 巴塞罗那</span></div>
       <div class="day-meta">
-        <span class="who">Amy + 晗晗</span>
+        <span class="who">Amy & 晗晗</span>
       </div>
     </div>
     <div class="day-body">
@@ -2800,7 +2854,7 @@ body::before {
       </div>
       <div class="day-place">Barcelona <span class="en">· 巴塞罗那</span></div>
       <div class="day-meta">
-        <span class="who">Amy + 晗晗</span>
+        <span class="who">Amy & 晗晗</span>
         <span>Eric 美西起飞 · Eric departs LAX</span>
       </div>
     </div>
@@ -2893,11 +2947,11 @@ body::before {
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
           <li><span class="flow-title">伦敦塔桥 · Tower Bridge</span>
-          <span class="flow-note">Tower Bridge exhibition optional</span></li>
+          <span class="flow-detail">从塔桥南岸出发，由南向北穿越塔桥。<br>机位导航：Five Guys Burgers and Fries Tower Bridge。 <a class="link-btn" href="https://www.google.com/maps/search/?api=1&query=Five%20Guys%20Burgers%20and%20Fries%20Tower%20Bridge" target="_blank">Open in Maps</a><br>提前查看当日开桥时间：Google 搜索 “tower bridge lift time”。</span></li>
           <li><span class="flow-title">大本钟 + 国会大厦 · Big Ben & Westminster</span>
           <span class="flow-note">Westminster Bridge 拍照点</span></li>
           <li><span class="flow-title">伦敦眼 · London Eye</span>
-          <span class="flow-note">可提前在线买票</span></li>
+          <span class="flow-detail">下船出来之后就是大本钟。<br>往南走上桥是拍伦敦眼超好机位。<br>过桥后可以拍到大本钟和威斯敏斯特教堂全景。</span></li>
           <li><span class="flow-title">双层观光巴士 · Big Bus Hop-on Hop-off</span>
           <span class="flow-note">Eric 刚下飞机, 比较省体力</span></li>
           <li><span class="flow-title">泰晤士河游船 · Thames River Cruise</span>
@@ -2936,7 +2990,9 @@ body::before {
           <li><span class="flow-title">圣詹姆斯公园 / 海德公园 · St James's Park / Hyde Park</span></li>
           <li><span class="flow-title">DLR 前往格林威治</span>
           <span class="flow-note">Cutty Sark 站, 步行上山约 15min</span></li>
-          <li><span class="flow-title">格林威治天文台 · Royal Observatory Greenwich</span></li>
+          <li><span class="flow-title">格林威治天文台 · Royal Observatory Greenwich</span>
+          <span class="flow-detail">不需要买票进天文台内部。<br>真正的本初子午线不在内部。</span>
+          <span class="flow-actions"><a class="link-btn" href="http://xhslink.com/o/vCuuKAfRPB" target="_blank">查看</a><a class="link-btn" href="http://xhslink.com/o/1ig0Ptbnz4B" target="_blank">查看</a></span></li>
           <li><span class="flow-title">卡蒂萨克号 / 格林威治市场 · Cutty Sark / Greenwich Market</span></li>
         </ul>
       </section>
@@ -2967,8 +3023,8 @@ body::before {
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
           <li><span class="flow-title">酒店寄存行李</span></li>
-          <li><span class="flow-title">大英博物馆 · The British Museum</span>
-          <span class="flow-note">罗塞塔石碑 · 帕特农神庙浮雕 · 木乃伊 · Hoa Hakananai'a</span></li>
+          <li><span class="flow-title">上午参观大英博物馆（The British Museum）</span>
+          <span class="flow-detail">开放时间：10:00-17:00。<br>门票：常设展免费，网上按时间预约；特许展提前在官网购票。<br>定位：正门日常排队30分钟左右；后门 Montague Place，通常不排队。</span></li>
           <li data-flight-link="london-paris"><span class="flow-title">British Airways BA0312 · LHR T5 → CDG T2C</span>
           <span class="flow-note">18:20 起飞 · 20:35 抵达 · 时差 +1h</span></li>
         </ul>
@@ -3068,17 +3124,15 @@ body::before {
       <section class="day-section flow-section">
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
-          <li><span class="flow-title">巴黎博物馆通票 · Paris Museum Pass</span>
-          <span class="flow-note">覆盖 50+ 场馆, 热门馆仍需单独预约时段</span></li>
           <li><span class="flow-title">巴黎歌剧院 · Palais Garnier</span>
-          <span class="flow-note">可看内景</span></li>
+          <span class="flow-detail">官网：<a class="link-btn" href="https://www.operadeparis.fr/" target="_blank">查看</a><br>参观时间：10:00-17:00，仅参观无演出。<br>票价：15欧/人。</span></li>
           <li><span class="flow-title">杜乐丽花园 · Jardin des Tuileries</span></li>
           <li><span class="flow-title">协和广场 · Place de la Concorde</span></li>
           <li><span class="flow-title">香榭丽舍大街 · Champs-Élysées</span></li>
           <li><span class="flow-title">凯旋门 · Arc de Triomphe</span>
-          <span class="flow-note">可登顶, 博物馆通票覆盖</span></li>
+          <span class="flow-detail">包含在巴黎博物馆通票内，免预约。</span></li>
           <li><span class="flow-title">蒙马特高地 + 圣心堂 · Montmartre + Sacré-Cœur</span></li>
-          <li><span class="flow-title">biubiu 麻辣烫 · Dinner before Louvre</span></li>
+          <li class="food"><span class="flow-title">biubiu 麻辣烫 · Dinner before Louvre</span></li>
         </ul>
       </section>
     </div>
@@ -3105,6 +3159,10 @@ body::before {
           <span class="anchor-note">18:30 入场 · 梵高 / 莫奈 / 雷诺阿 / 德加</span>
           <a class="link-btn" href="https://drive.google.com/file/d/1lW8bGNTlgcVu74cCMze6YE573uqIsou7/view?usp=drive_link" target="_blank">Confirmation</a>
         </div>
+          <div class="anchor-item transit">
+          <span class="anchor-title">塞纳河游船待定 · Seine Cruise Ticket</span>
+          <span class="anchor-note">待选 Bateaux Mouches 或 Vedettes</span>
+        </div>
         </div>
       </section>
       <section class="day-section flow-section">
@@ -3113,11 +3171,9 @@ body::before {
           <li><span class="flow-title">巴黎圣母院 · Notre-Dame de Paris</span>
           <span class="flow-note">可看外观和内部</span></li>
           <li><span class="flow-title">莎士比亚书店 · Shakespeare & Co.</span></li>
-          <li><span class="flow-title">花神咖啡馆 · Café de Flore</span></li>
+          <li class="food"><span class="flow-title">花神咖啡馆 · Café de Flore</span></li>
           <li><span class="flow-title">埃菲尔铁塔 · Eiffel Tower</span>
           <span class="flow-note">整点闪灯 5min</span></li>
-          <li><span class="flow-title">塞纳河游船待定 · Seine Cruise Ticket</span>
-          <span class="flow-note">待选 Bateaux Mouches 或 Vedettes</span></li>
         </ul>
       </section>
     </div>
@@ -3170,7 +3226,7 @@ body::before {
         <span class="day-num">Day<span class="n">17</span></span>
         <span class="day-date">Sat · Jun 20</span>
       </div>
-      <div class="day-place">Florence <span class="en">· 大卫 + 乌菲兹</span></div>
+      <div class="day-place">Florence <span class="en">· 乌菲兹</span></div>
       <div class="day-meta">
         <span class="who">Amy + Eric</span>
         <span>佛罗伦萨主力日</span>
@@ -3183,8 +3239,9 @@ body::before {
           <div class="anchor-item transit">
           <span class="anchor-title">乌菲兹美术馆 · Galleria degli Uffizi</span>
           <span class="anchor-note">13:00 入场 · 波提切利 / 达芬奇 / 卡拉瓦乔</span>
-          <a class="link-btn" href="https://uffizigalleriestickets.com/?lang=en" target="_blank">Ticket</a>
+          <a class="link-btn" href="https://drive.google.com/file/d/1G_wF90xJ4-EqZ9ntQ-9CPbaec3DdHCRe/view?usp=sharing" target="_blank">Ticket</a>
           <a class="link-btn" href="https://docs.google.com/document/d/1Khg8L7lMY11Z_SEIRQWHv1eBcXuErEwJSXa37GfgGx8/edit?usp=sharing" target="_blank">看点</a>
+          <a class="link-btn" href="http://xhslink.com/n/1wtgUDrqlPk" target="_blank">参考路线</a>
         </div>
         </div>
       </section>
@@ -3192,15 +3249,18 @@ body::before {
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
           <li><span class="flow-title">圣母百花大教堂 · Duomo</span>
-          <span class="flow-note">如果订到票可以登顶</span></li>
-          <li><span class="flow-title">共和广场 · Piazza della Repubblica</span></li>
+          <span class="flow-detail">30欧元登顶票含博物馆、地宫、钟楼，穹顶可以近距离看壁画。<br>其他内部免费，适合在外面摆拍。</span></li>
+          <li><span class="flow-title">共和广场 · Piazza della Repubblica</span>
+          <span class="flow-detail">咖啡馆集中区。<br>老城核心广场。</span></li>
           <li><span class="flow-title">金主喷泉 · Fontana del Porcellino</span></li>
           <li><span class="flow-title">领主广场 · Piazza della Signoria</span>
-          <span class="flow-note">可顺路午饭</span></li>
-          <li><span class="flow-title">老桥 · Ponte Vecchio</span></li>
-          <li><span class="flow-title">碧提宫 · Palazzo Pitti</span></li>
+          <span class="flow-detail">露天雕塑广场：《大卫》复制品，海神喷泉，佣兵凉廊雕塑群。</span></li>
+          <li><span class="flow-title">老桥 · Ponte Vecchio</span>
+          <span class="flow-detail">周杰伦同款拍照地。</span></li>
+          <li><span class="flow-title">碧提宫 · Palazzo Pitti</span>
+          <span class="flow-detail">美第奇家族的宫殿。<br>套票22欧（含博物馆和花园）。</span></li>
           <li><span class="flow-title">米开朗基罗广场 · Piazzale Michelangelo</span>
-          <span class="flow-note">日落视角</span></li>
+          <span class="flow-detail">绝美拍照位置。 <a class="link-btn" href="http://xhslink.com/n/93j5RRf89J3" target="_blank">查看</a></span></li>
         </ul>
       </section>
     </div>
@@ -3223,20 +3283,20 @@ body::before {
       <section class="day-section anchors-section">
         <span class="section-kicker">Today's Anchor</span>
         <div class="anchor-list">
-          <div class="no-anchors">No ticketed anchors today.</div>
+          <div class="anchor-item transit">
+            <span class="anchor-title">佛罗伦萨 ⇄ 比萨 火车票</span>
+            <span class="anchor-extra">不需要提前预定<br>火车票到时候去火车站直接买 Firenze S.M.N. Station 到 Pisa San Rossore<br>路程：大约1-1.5小时<br>票价：9.3欧/人<br>注意：<span class="soft-list"><span>实体票必须打卡——上车前一定要在站台的黄色/绿色机器上插入车票，打印时间戳，出现绿色灯，才算有效 <a class="link-btn" href="http://xhslink.com/o/65U44gfUsD2" target="_blank">查看</a></span><span>Firenze S.M.N. Station 到 Pisa San Rossore 的车可能会比较少，而且可能是慢车。可以按照系统推荐，先坐到 Pisa Centrale 站下车，再自行换成到去 Pisa San Rossore 的车，大约只需要1.2欧、5分钟</span><span>坐车的时候注意听广播和看 Google Maps，避免错过站点</span></span></span>
+          </div>
         </div>
       </section>
       <section class="day-section flow-section">
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
-          <li data-flight-link="florence-pisa"><span class="flow-title">佛罗伦萨 ⇄ 比萨 火车待定</span>
-          <span class="flow-note">Firenze Santa Maria Novella → Pisa San Rossore · Regionale 约 1h</span></li>
-          <li><span class="flow-title">比萨斜塔 · Torre Pendente</span>
-          <span class="flow-note">登塔需提前在线买票 · 限时段</span></li>
-          <li><span class="flow-title">主教座堂 + 洗礼堂 · Duomo + Battistero</span></li>
-          <li><span class="flow-title">墓园 · Camposanto</span></li>
-          <li><span class="flow-title">返回佛罗伦萨 · Return to Florence</span>
-          <span class="flow-note">可补前一天没去到的, 或休息养体力</span></li>
+          <li>
+            <a class="flow-image-link" href="assets/pisa/guide.jpg" target="_blank">
+              <img src="assets/pisa/guide.jpg" alt="比萨攻略">
+            </a>
+          </li>
         </ul>
       </section>
     </div>
@@ -3264,11 +3324,11 @@ body::before {
       <section class="day-section flow-section">
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
-          <li data-flight-link="florence-rome"><span class="flow-title">佛罗伦萨 → 罗马 火车待定</span>
-          <span class="flow-note">Firenze S.M.N. → Roma Termini · Frecciarossa / Italo 约 1h30m</span></li>
+          <li data-flight-link="florence-rome"><span class="flow-title">Italo 8143 · Firenze S.M.N. → Roma Termini</span>
+          <span class="flow-note">16:43-18:19 · 车厢6 · 座位45、46</span></li>
           <li data-stay-link="rome-stay"><span class="flow-title">Adriana Boutique Guest House · 入住</span>
           <span class="flow-note">Jun 22 → Jun 26 · 4 晚</span></li>
-          <li><span class="flow-title">酒店附近轻松晚餐 · Easy dinner nearby</span></li>
+          <li class="food"><span class="flow-title">酒店附近轻松晚餐 · Easy dinner nearby</span></li>
         </ul>
       </section>
     </div>
@@ -3293,10 +3353,12 @@ body::before {
           <div class="anchor-item tbd">
           <span class="anchor-title">斗兽场预订待定 · Colosseum reservation</span>
           <span class="anchor-note">建议 timed entry</span>
+          <span class="anchor-extra">从斗兽场出来，在官方票上序号 7 的位置进入帕拉丁山侧门。<br>Google Maps 搜 Portale del Vignola。<br>这样走不用走回头路，也不用爬楼梯。<br>下来就是凯旋门 → 古罗马广场 → 后门 6 出口。<br>后门 6 出口出去就是真理之口。<br>古罗马广场 Foro Romano：古罗马人民当时生活的地方，遗址。<br>真理之口：位于 Basilica di Santa Maria in Cosmedin 希腊圣母堂。<br>圣瓦伦汀死于公元 273 年 2 月 14 日，情人节也是为了纪念他；这位圣人的头骨存放在教堂中。</span>
         </div>
           <div class="anchor-item tbd">
           <span class="anchor-title">万神庙预订待定 · Pantheon reservation</span>
           <span class="anchor-note">现在一般需要门票, 出发前查 museiitaliani.it</span>
+          <span class="anchor-extra">建筑背景：<span class="soft-list"><span>建于公元前 27 年，后由哈德良皇帝在公元 118-125 年重建</span><span>原意是“万神庙”，供奉古罗马诸神</span><span>公元 609 年改为基督教堂：圣母与诸殉道者教堂</span><span>圆顶直径 43.3 米，直到 15 世纪才被佛罗伦萨圣母百花大教堂超越</span></span>亮点：<span class="soft-list"><span>圆顶穹顶 Dome</span><span>世界上最大的无钢筋混凝土穹顶</span><span>中央的“天窗”叫 Oculus，直径 9 米，是唯一光源</span><span>下雨时雨水会直接落进来，但地面设计了隐形排水孔</span><span>大理石地板是原始罗马时期的地面，圆形和方形交错的几何图案象征“天圆地方”</span><span>中央供奉圣母与圣婴，是其从异教神庙转变为基督教堂的象征</span><span>拉斐尔安葬于此，可以找写有 Raphael 的墓碑</span></span>如果没有提前买票，用现金，5 欧/人，在门口最左边的队伍进场。</span>
         </div>
         </div>
       </section>
@@ -3306,9 +3368,11 @@ body::before {
           <li><span class="flow-title">古罗马广场 + 帕拉蒂诺山 · Foro Romano + Palatino</span></li>
           <li><span class="flow-title">威尼斯广场 · Piazza Venezia</span></li>
           <li><span class="flow-title">圣依纳爵堂 · Sant'Ignazio</span>
-          <span class="flow-note">错视天顶画 · 镜面看天顶</span></li>
+          <span class="flow-note">错视天顶画 · 镜面看天顶</span>
+          <span class="flow-detail">3D 裸眼绝美教堂天花板。<br>距离万神殿步行 5 min，免门票。<br>可以花 1 欧元跟穹顶拍照。</span></li>
           <li><span class="flow-title">特雷维喷泉 · Fontana di Trevi</span></li>
-          <li><span class="flow-title">西班牙广场 · Piazza di Spagna</span></li>
+          <li><span class="flow-title">西班牙广场 · Piazza di Spagna</span>
+          <span class="flow-detail">西班牙台阶：Scalinata di Trinità dei Monti。</span></li>
         </ul>
       </section>
     </div>
@@ -3334,6 +3398,7 @@ body::before {
           <span class="anchor-title">梵蒂冈博物馆导览 · Vatican Museums Guided Tour</span>
           <span class="anchor-note">08:00 入场 + 导览 · 含西斯廷礼拜堂 · 肩膝需遮住</span>
           <a class="link-btn" href="https://drive.google.com/file/d/1PZqLUzunOBKa7eRjsyN_bnZURumzFFdt/view?usp=drive_link" target="_blank">Confirmation</a>
+          <a class="link-btn" href="https://docs.google.com/document/d/1f_-hZZtFbBzjv_ui0qHoLII7tr-2bL6WvYZ9_A6EcdI/edit?usp=sharing" target="_blank">看点</a>
         </div>
         </div>
       </section>
@@ -3342,9 +3407,8 @@ body::before {
         <ul class="flow-list">
           <li><span class="flow-title">西斯廷礼拜堂 · Sistine Chapel</span></li>
           <li><span class="flow-title">圣彼得大教堂 · St. Peter's Basilica</span>
-          <span class="flow-note">进入免费, 安检长队; 登穹顶另收费</span></li>
-          <li><span class="flow-title">圣天使堡 · Castel Sant'Angelo</span>
-          <span class="flow-note">体力有余则进去登顶, 否则桥上拍外观</span></li>
+          <span class="flow-note">进入免费, 安检长队; 登穹顶另收费</span>
+          <span class="flow-detail">世界上最大的教堂。<br>看点：<a class="link-btn" href="http://xhslink.com/n/66JDNgp0WCO" target="_blank">查看</a></span></li>
         </ul>
       </section>
     </div>
@@ -3538,9 +3602,9 @@ body::before {
 
   <div class="flight-card" data-flight-card="florence-rome">
     <div class="flight-card-title">佛罗伦萨 → 罗马</div>
-    <div class="flight-card-sub">火车 · 待预订</div>
+    <div class="flight-card-sub">Italo 火车 · 已预订</div>
     <article class="boarding-pass">
-      <div class="bp-main"><div class="bp-col bp-left"><span class="label">Train</span><div class="bp-flight-no">待补</div><div class="bp-carrier">Trenitalia / Italo</div><div class="bp-date">Jun 22</div></div><div class="bp-col bp-route"><div><span class="label">From</span><div class="bp-airport">FIR</div><div class="bp-terminal">Firenze S.M.N.</div><div class="bp-time">待补</div></div><div class="bp-arrow"><span class="bp-duration">约1h30m</span>→</div><div><span class="label">To</span><div class="bp-airport">ROM</div><div class="bp-terminal">Roma Termini</div><div class="bp-time">待补</div></div></div><div class="bp-col bp-right"><div class="bp-info"><span class="label">Passenger</span><div class="value">Amy + Eric</div></div><div class="bp-info"><span class="label">Seat</span><div class="value">TBD</div></div><div class="bp-info"><span class="label">Confirmation</span><div class="value">待补</div></div></div></div>
+      <div class="bp-main"><div class="bp-col bp-left"><span class="label">Train</span><div class="bp-flight-no">8143</div><div class="bp-carrier">Italo</div><div class="bp-date">Jun 22</div></div><div class="bp-col bp-route"><div><span class="label">From</span><div class="bp-airport">FIR</div><div class="bp-terminal">Firenze S.M.N.</div><div class="bp-time">16:43</div></div><div class="bp-arrow"><span class="bp-duration">1h36m</span>→</div><div><span class="label">To</span><div class="bp-airport">ROM</div><div class="bp-terminal">Roma Termini</div><div class="bp-time">18:19</div></div></div><div class="bp-col bp-right"><div class="bp-info"><span class="label">Passenger</span><div class="value">Amy + Eric</div></div><div class="bp-info"><span class="label">Coach</span><div class="value">6</div></div><div class="bp-info"><span class="label">Seat</span><div class="value">45, 46</div></div><div class="bp-info"><span class="label">Confirmation</span><div class="value"><a class="link-btn" href="https://drive.google.com/file/d/1QfMzB1_NyXd2L4qxnNSaVIme94yIH1Ds/view?usp=sharing" target="_blank">火车票</a></div></div></div></div>
     </article>
   </div>
 
@@ -4046,20 +4110,10 @@ const guideTransportationByDay = {
   'day-9': [{ link: 'barcelona-london', pass: 0 }, { link: 'eric-london', pass: 0 }],
   'day-12': [{ link: 'london-paris', pass: 0 }],
   'day-16': [{ link: 'paris-florence', pass: 0 }],
-  'day-18': [{ link: 'florence-pisa', pass: 0 }, { link: 'florence-pisa', pass: 1 }],
   'day-19': [{ link: 'florence-rome', pass: 0 }],
   'day-23': [{ link: 'rome-changchun', pass: 0 }, { link: 'rome-changchun', pass: 1 }]
 };
-const guideTransportationNotesByDay = {
-  'day-18': {
-    text: '实体票必须打卡——上车前一定要在站台的黄色/绿色机器上插入车票，打印时间戳，出现绿色灯，才算有效，最好用手机录下全过程',
-    url: 'http://xhslink.com/o/65U44gfUsD2'
-  },
-  'day-19': {
-    text: '实体票必须打卡——上车前一定要在站台的黄色/绿色机器上插入车票，打印时间戳，出现绿色灯，才算有效，最好用手机录下全过程',
-    url: 'http://xhslink.com/o/65U44gfUsD2'
-  }
-};
+const guideTransportationNotesByDay = {};
 const guideStayByDay = {
   'day-6': 'barcelona-stay',
   'day-7': 'barcelona-stay',
@@ -4080,8 +4134,17 @@ const guideStayByDay = {
   'day-22': 'rome-stay'
 };
 const guideBackupByDay = {
+  'day-10': ['维多利亚和阿尔伯特博物馆 · Victoria and Albert Museum (V&A)'],
   'day-17': ['学院美术馆 · Accademia'],
-  'day-18': ['学院美术馆 · Accademia']
+  'day-18': ['学院美术馆 · Accademia'],
+  'day-21': ['圣天使堡 · Castel Sant\\'Angelo']
+};
+const guideMuseumPassByDay = {
+  'day-14': {
+    title: '巴黎博物馆通票',
+    ticketUrl: 'https://drive.google.com/file/d/1TEtqX4MI0kXdYFP-7XtPMDJTMmhvrEfV/view?usp=drive_link',
+    infoUrl: 'http://xhslink.com/o/Ak9W3Kevhre'
+  }
 };
 
 function guideText(el, selector) {
@@ -4150,8 +4213,31 @@ function buildReservationSection(day) {
     item.querySelectorAll('details').forEach(details => {
       reservation.appendChild(details.cloneNode(true));
     });
+    item.querySelectorAll('.anchor-extra').forEach(extra => {
+      reservation.appendChild(extra.cloneNode(true));
+    });
     list.appendChild(reservation);
   });
+  return section;
+}
+function buildMuseumPassSection(dayId) {
+  const pass = guideMuseumPassByDay[dayId];
+  if (!pass) return null;
+
+  const section = document.createElement('section');
+  section.className = 'day-section museum-pass-section';
+  section.innerHTML = `
+    <span class="section-kicker">巴黎博物馆通票</span>
+    <div class="reservation-list">
+      <article class="reservation-item">
+        <span class="reservation-title">${guideEscapeHtml(pass.title)}</span>
+        <span class="flow-detail">规则：从进入第一个博物馆的时间开始算起，48小时内任选博物馆。<br>注意：有些博物馆需要预约，具体博物馆 list 和信息请看 <a class="link-btn" href="${pass.infoUrl}" target="_blank">查看</a></span>
+        <div class="reservation-actions">
+          <a class="link-btn" href="${pass.ticketUrl}" target="_blank">Ticket</a>
+        </div>
+      </article>
+    </div>
+  `;
   return section;
 }
 function getTransportPass(linkId, passIndex) {
@@ -4296,6 +4382,7 @@ function restructureGuideDayCards() {
     const body = day.querySelector('.day-body');
     if (!body) return;
     const sections = [
+      buildMuseumPassSection(day.id),
       buildReservationSection(day),
       buildTransportationSection(day.id),
       buildFlowSection(day, day.id),
