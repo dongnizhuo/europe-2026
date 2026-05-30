@@ -1372,6 +1372,41 @@ body::before {
 .anchor-extra .soft-list span {
   display: list-item;
 }
+.train-note-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.train-note-list > li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--ink-2);
+}
+.train-note-list > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--terracotta);
+}
+.train-note-list .sub-list {
+  display: grid;
+  gap: 5px;
+  margin: 6px 0 0 2px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line-2);
+  list-style: none;
+}
+.train-note-list .sub-list li {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
 .flow-image-link {
   display: block;
   width: min(100%, 420px);
@@ -3372,7 +3407,24 @@ body::before {
         <div class="anchor-list">
           <div class="anchor-item transit">
             <span class="anchor-title">佛罗伦萨 ⇄ 比萨 火车票</span>
-            <span class="anchor-extra">不需要提前预定<br>火车票到时候去火车站直接买 Firenze S.M.N. Station 到 Pisa San Rossore<br>路程：大约1-1.5小时<br>票价：9.3欧/人<br>注意：<span class="soft-list"><span>实体票必须打卡——上车前一定要在站台的黄色/绿色机器上插入车票，打印时间戳，出现绿色灯，才算有效 <a class="link-btn" href="http://xhslink.com/o/65U44gfUsD2" target="_blank">查看</a></span><span>Firenze S.M.N. Station 到 Pisa San Rossore 的车可能会比较少，而且可能是慢车。可以按照系统推荐，先坐到 Pisa Centrale 站下车，再自行换成到去 Pisa San Rossore 的车，大约只需要1.2欧、5分钟</span><span>坐车的时候注意听广播和看 Google Maps，避免错过站点</span></span></span>
+            <span class="anchor-extra">
+              <ul class="train-note-list">
+                <li>不需要提前预定</li>
+                <li>火车票到时候去火车站直接买 Firenze S.M.N. Station 到 Pisa San Rossore
+                  <ul class="sub-list">
+                    <li>Firenze S.M.N. Station 到 Pisa San Rossore 的车可能会比较少，而且可能是慢车。可以按照系统推荐，先坐到 Pisa Centrale 站下车，再自行换成到去 Pisa San Rossore 的车，大约只需要1.2欧、5分钟</li>
+                  </ul>
+                </li>
+                <li>路程：大约1-1.5小时</li>
+                <li>票价：9.3欧/人</li>
+                <li>注意：
+                  <ul class="sub-list">
+                    <li>实体票必须打卡——上车前一定要在站台的黄色/绿色机器上插入车票，打印时间戳，出现绿色灯，才算有效 <a class="link-btn" href="http://xhslink.com/o/65U44gfUsD2" target="_blank">查看</a></li>
+                    <li>坐车的时候注意听广播和看 Google Maps，避免错过站点</li>
+                  </ul>
+                </li>
+              </ul>
+            </span>
           </div>
         </div>
       </section>
@@ -4538,7 +4590,7 @@ function buildReservationSection(day) {
     item.querySelectorAll('details').forEach(details => {
       reservation.appendChild(details.cloneNode(true));
     });
-    item.querySelectorAll('.anchor-extra').forEach(extra => {
+    item.querySelectorAll(':scope > .anchor-extra').forEach(extra => {
       reservation.appendChild(extra.cloneNode(true));
     });
     list.appendChild(reservation);
