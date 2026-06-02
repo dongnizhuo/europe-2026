@@ -1467,7 +1467,13 @@ body::before {
   line-height: 1.45;
   padding: 4px 0;
 }
-
+.backup-note {
+  color: var(--muted);
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin-top: 2px;
+}
 /* segment within a day */
 .seg {
   position: relative;
@@ -2596,7 +2602,6 @@ body::before {
   <div class="tbd-banner">
     <div class="tbd-title">待定</div>
     <div class="tbd-list">
-      <label><input type="checkbox"> Amy&晗晗巴塞罗那住宿</label>
       <label><input type="checkbox"> 塞纳河游船</label>
       <label><input type="checkbox"> 佛罗伦萨 ⇄ 比萨火车票</label>
       <label><input type="checkbox"> 斗兽场门票</label>
@@ -2619,134 +2624,134 @@ body::before {
     <div class="calendar-day off"><div class="cal-date">3</div><div class="cal-muted">Pre-trip</div></div>
     <div class="calendar-day trip travel" data-guide-day="day-1" tabindex="0" role="button">
       <div class="cal-date">4</div>
-      <div class="cal-city">Los Angeles → London</div>
+      <div class="cal-city">洛杉矶 → 伦敦</div>
       <div class="cal-flight" data-flyer="Amy" data-flight-link="amy-glasgow">UA923<br>LAX T7 15:35-10:10+1 LHR T2</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-2" tabindex="0" role="button">
       <div class="cal-date">5</div>
-      <div class="cal-city">London → Glasgow</div>
+      <div class="cal-city">伦敦 → 格拉斯哥</div>
       <div class="cal-flight" data-flyer="Amy" data-flight-link="amy-glasgow">UA923<br>LAX T7 15:35-10:10+1 LHR T2</div>
       <div class="cal-flight" data-flyer="Amy" data-flight-link="amy-glasgow">BA1490<br>LHR T5 17:20-18:50 GLA</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-3" tabindex="0" role="button">
       <div class="cal-date">6</div>
-      <div class="cal-city">Glasgow</div>
+      <div class="cal-city">格拉斯哥</div>
       <div class="cal-hotel" data-stay-link="hanhan-home">晗晗家</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-4" tabindex="0" role="button">
       <div class="cal-date">7</div>
-      <div class="cal-city">Glasgow</div>
+      <div class="cal-city">格拉斯哥</div>
       <div class="cal-hotel" data-stay-link="hanhan-home">晗晗家</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-5" tabindex="0" role="button">
       <div class="cal-date">8</div>
-      <div class="cal-city">Edinburgh</div>
+      <div class="cal-city">爱丁堡</div>
       <div class="cal-hotel" data-stay-link="hanhan-home">晗晗家</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-6" tabindex="0" role="button">
       <div class="cal-date">9</div>
-      <div class="cal-city">Scotland → Barcelona</div>
-      <div class="cal-hotel pending" data-stay-link="barcelona-stay">巴塞罗那酒店待定</div>
+      <div class="cal-city">格拉斯哥 → 巴塞罗那</div>
+      <div class="cal-hotel" data-stay-link="barcelona-stay">Barcelona Airbnb</div>
       <div class="cal-flight" data-flyer="Amy&晗" data-flight-link="scotland-barcelona">FR7823<br>PIK 12:50-16:25 BCN T2</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-7" tabindex="0" role="button">
       <div class="cal-date">10</div>
-      <div class="cal-city">Barcelona</div>
-      <div class="cal-hotel pending" data-stay-link="barcelona-stay">巴塞罗那酒店待定</div>
+      <div class="cal-city">巴塞罗那</div>
+      <div class="cal-hotel" data-stay-link="barcelona-stay">Barcelona Airbnb</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-8" tabindex="0" role="button">
       <div class="cal-date">11</div>
-      <div class="cal-city">Barcelona</div>
-      <div class="cal-hotel pending" data-stay-link="barcelona-stay">巴塞罗那酒店待定</div>
+      <div class="cal-city">巴塞罗那</div>
+      <div class="cal-hotel" data-stay-link="barcelona-stay">Barcelona Airbnb</div>
       <div class="cal-flight" data-flyer="Eric" data-flight-link="eric-london">VS24<br>LAX T2 23:15-17:35+1 LHR T3</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-9" tabindex="0" role="button">
       <div class="cal-date">12</div>
-      <div class="cal-city">Barcelona → London</div>
+      <div class="cal-city">巴塞罗那 → 伦敦</div>
       <div class="cal-hotel" data-stay-link="london-stay">Tower Suites by Blue Orchid</div>
       <div class="cal-flight" data-flyer="Amy" data-flight-link="barcelona-london">W95360<br>BCN T2 16:40-18:05 LTN</div>
       <div class="cal-flight" data-flyer="Eric" data-flight-link="eric-london">VS24<br>LAX T2 23:15-17:35+1 LHR T3</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-10" tabindex="0" role="button">
       <div class="cal-date">13</div>
-      <div class="cal-city">London</div>
+      <div class="cal-city">伦敦</div>
       <div class="cal-hotel" data-stay-link="london-stay">Tower Suites by Blue Orchid</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-11" tabindex="0" role="button">
       <div class="cal-date">14</div>
-      <div class="cal-city">London</div>
+      <div class="cal-city">伦敦</div>
       <div class="cal-plan">格林威治</div>
       <div class="cal-hotel" data-stay-link="london-stay">Tower Suites by Blue Orchid</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-12" tabindex="0" role="button">
       <div class="cal-date">15</div>
-      <div class="cal-city">London → Paris</div>
+      <div class="cal-city">伦敦 → 巴黎</div>
       <div class="cal-plan">大英博物馆</div>
       <div class="cal-hotel" data-stay-link="paris-stay">Airbnb</div>
       <div class="cal-flight" data-flight-link="london-paris">BA0312<br>LHR T5 18:20-20:35 CDG T2C</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-13" tabindex="0" role="button">
       <div class="cal-date">16</div>
-      <div class="cal-city">Paris</div>
+      <div class="cal-city">巴黎</div>
       <div class="cal-plan">Disneyland Paris</div>
       <div class="cal-hotel" data-stay-link="paris-stay">Airbnb</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-14" tabindex="0" role="button">
       <div class="cal-date">17</div>
-      <div class="cal-city">Paris</div>
+      <div class="cal-city">巴黎</div>
       <div class="cal-plan">卢浮宫</div>
       <div class="cal-hotel" data-stay-link="paris-stay">Airbnb</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-15" tabindex="0" role="button">
       <div class="cal-date">18</div>
-      <div class="cal-city">Paris</div>
+      <div class="cal-city">巴黎</div>
       <div class="cal-hotel" data-stay-link="paris-stay">Airbnb</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-16" tabindex="0" role="button">
       <div class="cal-date">19</div>
-      <div class="cal-city">Paris → Florence</div>
+      <div class="cal-city">巴黎 → 佛罗伦萨</div>
       <div class="cal-hotel" data-stay-link="florence-stay">Hotel Indigo Florence by IHG</div>
       <div class="cal-flight" data-flight-link="paris-florence">IB5015<br>ORY T1 15:15-17:00 FLR</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-17" tabindex="0" role="button">
       <div class="cal-date">20</div>
-      <div class="cal-city">Florence</div>
+      <div class="cal-city">佛罗伦萨</div>
       <div class="cal-hotel" data-stay-link="florence-stay">Hotel Indigo Florence by IHG</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-18" tabindex="0" role="button">
       <div class="cal-date">21</div>
-      <div class="cal-city">Pisa / Florence</div>
+      <div class="cal-city">比萨 / 佛罗伦萨</div>
       <div class="cal-train" data-flight-link="florence-pisa">Firenze S.M.N. ⇄ Pisa S. Rossore</div>
       <div class="cal-hotel" data-stay-link="florence-stay">Hotel Indigo Florence by IHG</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-19" tabindex="0" role="button">
       <div class="cal-date">22</div>
-      <div class="cal-city">Florence → Rome</div>
+      <div class="cal-city">佛罗伦萨 → 罗马</div>
       <div class="cal-hotel" data-stay-link="rome-stay">Adriana Boutique Guest House</div>
       <div class="cal-train" data-flight-link="florence-rome">Italo 8143<br>Firenze S.M.N. 16:43-18:19 Roma Termini</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-20" tabindex="0" role="button">
       <div class="cal-date">23</div>
-      <div class="cal-city">Rome</div>
+      <div class="cal-city">罗马</div>
       <div class="cal-hotel" data-stay-link="rome-stay">Adriana Boutique Guest House</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-21" tabindex="0" role="button">
       <div class="cal-date">24</div>
-      <div class="cal-city">Vatican City / Rome</div>
+      <div class="cal-city">梵蒂冈 / 罗马</div>
       <div class="cal-hotel" data-stay-link="rome-stay">Adriana Boutique Guest House</div>
     </div>
     <div class="calendar-day trip" data-guide-day="day-22" tabindex="0" role="button">
       <div class="cal-date">25</div>
-      <div class="cal-city">Rome</div>
+      <div class="cal-city">罗马</div>
       <div class="cal-hotel" data-stay-link="rome-stay">Adriana Boutique Guest House</div>
     </div>
     <div class="calendar-day trip travel" data-guide-day="day-23" tabindex="0" role="button">
       <div class="cal-date">26</div>
-      <div class="cal-city">Rome → Chengdu</div>
+      <div class="cal-city">罗马 → 成都</div>
       <div class="cal-flight" data-flight-link="rome-changchun">3U3896<br>FCO T3 13:05-05:25+1 CTU T1</div>
       <div class="cal-flight" data-flight-link="rome-changchun">3U6431<br>CTU T2 09:15-12:40 CGQ T2</div>
     </div>
-    <div class="calendar-day off" data-guide-day="day-23" tabindex="0" role="button"><div class="cal-date">27</div><div class="cal-city">Chengdu → Changchun</div><div class="cal-flight" data-flight-link="rome-changchun">3U6431<br>CTU T2 09:15-12:40 CGQ T2</div></div>
+    <div class="calendar-day off" data-guide-day="day-23" tabindex="0" role="button"><div class="cal-date">27</div><div class="cal-city">成都 → 长春</div><div class="cal-flight" data-flight-link="rome-changchun">3U6431<br>CTU T2 09:15-12:40 CGQ T2</div></div>
   </div>
 
 </section>
@@ -2759,7 +2764,6 @@ body::before {
   <div class="tbd-banner">
     <div class="tbd-title">待定</div>
     <div class="tbd-list">
-      <label><input type="checkbox"> Amy&晗晗巴塞罗那住宿</label>
       <label><input type="checkbox"> 塞纳河游船</label>
       <label><input type="checkbox"> 佛罗伦萨 ⇄ 比萨火车票</label>
       <label><input type="checkbox"> 斗兽场门票</label>
@@ -3000,8 +3004,8 @@ body::before {
         <ul class="flow-list">
           <li data-flight-link="scotland-barcelona"><span class="flow-title">Ryanair FR7823 · PIK → BCN T2</span>
           <span class="flow-note">12:50 起飞 · 16:25 抵达 · 全程2小时35分钟</span></li>
-          <li><span class="flow-title">巴塞罗那酒店待定</span>
-          <span class="flow-note">建议 Eixample / Gòtic / Born · 靠近 Passeig de Gràcia 地铁</span></li>
+          <li data-stay-link="barcelona-stay"><span class="flow-title">Barcelona Airbnb</span>
+          <span class="flow-note">Ronda de Sant Pere 50, 08010 Barcelona, Catalonia, Spain</span></li>
           <li><span class="flow-title">入住或放行李 · Check in / drop bags</span></li>
         </ul>
       </section>
@@ -3153,6 +3157,7 @@ body::before {
           <span class="flow-detail">下船出来之后就是大本钟。<br>往南走上桥是拍伦敦眼超好机位。<br>过桥后可以拍到大本钟和威斯敏斯特教堂全景。</span></li>
           <li><span class="flow-title">双层观光巴士 · Big Bus Hop-on Hop-off</span>
           <span class="flow-note">Eric 刚下飞机, 比较省体力</span></li>
+          <li><span class="flow-title">博罗市场 · Borough Market</span></li>
           <li><span class="flow-title">泰晤士河游船 · Thames River Cruise</span>
           <span class="flow-note">Westminster → Greenwich pier</span></li>
         </ul>
@@ -3187,7 +3192,7 @@ body::before {
           <li><span class="flow-title">白金汉宫 · Buckingham Palace</span>
           <span class="flow-note">Changing of the Guard 通常周三/五/日 11:00</span></li>
           <li><span class="flow-title">圣詹姆斯公园 / 海德公园 · St James's Park / Hyde Park</span></li>
-          <li><span class="flow-title">DLR 前往格林威治</span>
+          <li><span class="flow-title">国王十字车站 · King's Cross Station</span>
           <span class="flow-note">Cutty Sark 站, 步行上山约 15min</span></li>
           <li><span class="flow-title">格林威治天文台 · Royal Observatory Greenwich</span>
           <span class="flow-detail">不需要买票进天文台内部。<br>真正的本初子午线不在内部。</span>
@@ -3325,15 +3330,18 @@ body::before {
       <section class="day-section flow-section">
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
-          <li><span class="flow-title">巴黎歌剧院 · Palais Garnier</span>
-          <span class="flow-detail">官网：<a class="link-btn" href="https://www.operadeparis.fr/" target="_blank">查看</a><br>参观时间：10:00-17:00，仅参观无演出。<br>票价：15欧/人。</span></li>
-          <li><span class="flow-title">杜乐丽花园 · Jardin des Tuileries</span></li>
+          <li><span class="flow-title">玛黑区逛街 · Le Marais</span></li>
+          <li><span class="flow-title">圣礼拜堂 · Sainte-Chapelle</span>
+          <span class="flow-detail">需要预约。</span></li>
+          <li><span class="flow-title">巴黎圣母院 · Notre-Dame de Paris</span></li>
+          <li><span class="flow-title">莎士比亚书店 · Shakespeare and Company</span></li>
+          <li class="food"><span class="flow-title">花神咖啡馆拍照 · Café de Flore</span></li>
+          <li><span class="flow-title">橘园美术馆 · Musée de l'Orangerie</span>
+          <span class="flow-detail">需要预约。</span></li>
           <li><span class="flow-title">协和广场 · Place de la Concorde</span></li>
-          <li><span class="flow-title">香榭丽舍大街 · Champs-Élysées</span></li>
-          <li><span class="flow-title">凯旋门 · Arc de Triomphe</span>
-          <span class="flow-detail">包含在巴黎博物馆通票内，免预约。</span></li>
-          <li><span class="flow-title">蒙马特高地 + 圣心堂 · Montmartre + Sacré-Cœur</span></li>
-          <li class="food"><span class="flow-title">biubiu 麻辣烫 · Dinner before Louvre</span></li>
+          <li><span class="flow-title">杜乐丽花园 · Jardin des Tuileries</span></li>
+          <li><span class="flow-title">卢浮宫 18:00 · Louvre</span></li>
+          <li class="food"><span class="flow-title">晚餐：BiuBiu 麻辣烫 · BiuBiu Malatang</span></li>
         </ul>
       </section>
     </div>
@@ -3370,12 +3378,13 @@ body::before {
       <section class="day-section flow-section">
         <span class="section-kicker">Today's Flow</span>
         <ul class="flow-list">
-          <li><span class="flow-title">巴黎圣母院 · Notre-Dame de Paris</span>
-          <span class="flow-note">可看外观和内部</span></li>
-          <li><span class="flow-title">莎士比亚书店 · Shakespeare & Co.</span></li>
-          <li class="food"><span class="flow-title">花神咖啡馆 · Café de Flore</span></li>
-          <li><span class="flow-title">埃菲尔铁塔 · Eiffel Tower</span>
-          <span class="flow-note">整点闪灯 5min</span></li>
+          <li><span class="flow-title">巴黎歌剧院 · Palais Garnier</span></li>
+          <li><span class="flow-title">凯旋门 · Arc de Triomphe</span>
+          <span class="flow-detail">巴黎博物馆通票包含，免预约。</span></li>
+          <li><span class="flow-title">香榭丽舍大街 · Champs-Élysées</span></li>
+          <li><span class="flow-title">埃菲尔铁塔 · Eiffel Tower</span></li>
+          <li><span class="flow-title">奥赛博物馆 18:30 · Musée d'Orsay</span></li>
+          <li><span class="flow-title">蒙马特高地 & 圣心大教堂 OR 塞纳河游船 · Montmartre & Sacré-Cœur OR Seine River Cruise</span></li>
         </ul>
       </section>
     </div>
@@ -3873,16 +3882,16 @@ body::before {
     <div class="stay-name">晗晗家</div>
   </div>
 
-  <div class="list-card tbd hotel-card" data-stay-card="barcelona-stay">
+  <div class="list-card hotel-card" data-stay-card="barcelona-stay">
     <div class="stay-top">
       <div class="stay-meta">Jun 9-Jun 12 (3晚)<span class="place">Spain · Barcelona</span></div>
       <div class="stay-guest">Amy + 晗晗</div>
     </div>
-    <div class="stay-name">待预订</div>
-    <div class="stay-detail"><span class="k">地址：</span>地址待补</div>
-    <div class="stay-detail"><span class="k">车站：</span>待补；待补</div>
-    <div class="stay-detail"><span class="k">超市：</span>待补</div>
-    <div class="stay-detail"><span class="k">景点：</span>待补；待补</div>
+    <div class="stay-name">Barcelona Airbnb</div>
+    <div class="stay-detail"><span class="k">地址：</span>Ronda de Sant Pere 50, 08010 Barcelona, Catalonia, Spain</div>
+    <div class="stay-detail"><span class="k">车站：</span>Urquinaona Station；Arc de Triomf Station；Plaça de Catalunya Station</div>
+    <div class="stay-detail"><span class="k">超市：</span>Carrefour Express；Condis</div>
+    <div class="stay-detail"><span class="k">景点：</span>凯旋门；加泰罗尼亚广场；巴塞罗那主教座堂</div>
   </div>
 
   <div class="list-card hotel-card" data-stay-card="london-stay">
@@ -4591,9 +4600,8 @@ const guideBackupByDay = {
     title: '维多利亚和阿尔伯特博物馆 · Victoria and Albert Museum (V&A)',
     actions: [{ label: '视频讲解', url: 'https://v.douyin.com/BO4FCJGR9zk/' }]
   }],
-  'day-14': ['塞纳河游船 · Seine River Cruise'],
-  'day-15': ['巴黎歌剧院 · Palais Garnier', '塞纳河游船 · Seine River Cruise'],
-  'day-16': ['巴黎歌剧院 · Palais Garnier', '蒙马特高地 · Montmartre'],
+  'day-12': ['塞纳河游船 · Seine River Cruise'],
+  'day-16': ['孚日广场 + 玛黑区浅逛 · Place des Vosges + Le Marais'],
   'day-17': ['学院美术馆 · Accademia'],
   'day-18': ['学院美术馆 · Accademia'],
   'day-21': ["圣天使堡 · Castel Sant'Angelo"]
@@ -4926,7 +4934,8 @@ function buildBackupSection(dayId) {
       ${items.map(item => {
         const title = typeof item === 'string' ? item : item.title;
         const actions = typeof item === 'string' ? [] : (item.actions || []);
-        return `<div class="backup-item">${guideEscapeHtml(title)} <a class="link-btn map-btn" href="${guideMapsUrl(title)}" target="_blank" aria-label="Open in Google Maps" title="Google Maps">${guideMapIconSvg()}</a>${actions.map(action => ` <a class="link-btn" href="${guideEscapeHtml(action.url)}" target="_blank">${guideEscapeHtml(action.label)}</a>`).join('')}</div>`;
+        const note = typeof item === 'string' ? '' : (item.note || '');
+        return `<div class="backup-item">${guideEscapeHtml(title)} <a class="link-btn map-btn" href="${guideMapsUrl(title)}" target="_blank" aria-label="Open in Google Maps" title="Google Maps">${guideMapIconSvg()}</a>${actions.map(action => ` <a class="link-btn" href="${guideEscapeHtml(action.url)}" target="_blank">${guideEscapeHtml(action.label)}</a>`).join('')}${note ? `<span class="backup-note">${guideEscapeHtml(note)}</span>` : ''}</div>`;
       }).join('')}
     </div>
   `;
